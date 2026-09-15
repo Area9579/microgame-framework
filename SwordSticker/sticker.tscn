@@ -2,6 +2,14 @@
 
 [ext_resource type="Texture2D" uid="uid://dowbc4oitb623" path="res://Framework/Assets/warioware_icon.png" id="1_6s24i"]
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_k2tvh"]
+radius = 194.16487
+
 [node name="Sticker" type="Sprite2D" unique_id=169067741]
 scale = Vector2(0.1, 0.1)
 texture = ExtResource("1_6s24i")
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="." unique_id=380706941]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D" unique_id=177333809]
+shape = SubResource("CircleShape2D_k2tvh")
