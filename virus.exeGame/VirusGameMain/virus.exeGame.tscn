@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://biykn6tf00jg8"]
+
+[ext_resource type="Script" uid="uid://cedikiplamq4j" path="res://virus.exeGame/VirusGameMain/virus.exe_game.gd" id="1_xfgvp"]
+
+[node name="Virus_exeGame" type="Node2D" unique_id=141195700]
+script = ExtResource("1_xfgvp")
