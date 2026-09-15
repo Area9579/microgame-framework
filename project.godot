@@ -34,7 +34,8 @@ folder_colors={
 "res://Framework/GameManager/": "yellow",
 "res://Framework/MainMenu/": "green",
 "res://Framework/Microgame/": "blue",
-"res://SimpleExampleGame/": "orange"
+"res://SimpleExampleGame/": "orange",
+"res://SwordSticker/": "blue"
 }
 
 [input]

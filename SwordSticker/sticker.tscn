@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://cpvw70yi625en"]
+
+[ext_resource type="Texture2D" uid="uid://dowbc4oitb623" path="res://Framework/Assets/warioware_icon.png" id="1_6s24i"]
+
+[node name="Sticker" type="Sprite2D" unique_id=169067741]
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("1_6s24i")

@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://cb4ahbwg54vny"]
+
+[ext_resource type="Script" uid="uid://ct3vkf1otwvy4" path="res://SwordSticker/sword_sticker.gd" id="1_qq8mt"]
+[ext_resource type="Texture2D" uid="uid://dowbc4oitb623" path="res://Framework/Assets/warioware_icon.png" id="2_5soms"]
+
+[node name="SwordSticker" type="Node2D" unique_id=221769728]
+script = ExtResource("1_qq8mt")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1989300692]
+position = Vector2(543, 146)
+texture = ExtResource("2_5soms")
+
+[node name="StickPoint" type="Node2D" parent="." unique_id=1513382769]
+position = Vector2(550, 321)
+
+[node name="ProjPoint" type="Node2D" parent="." unique_id=485029104]
+position = Vector2(551.25006, 592.7752)
