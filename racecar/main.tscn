@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://cqqf5eex1xppe"]
+
+[ext_resource type="Script" uid="uid://1xykq3ylekac" path="res://racecar/racecar_main.gd" id="1_vj7kx"]
+[ext_resource type="Texture2D" uid="uid://cyfvfsm6676qy" path="res://racecar/assets/placeholders/background.png" id="2_1iq5d"]
+[ext_resource type="PackedScene" uid="uid://caxpktqfd0bni" path="res://racecar/racecar.tscn" id="2_pa8gf"]
+[ext_resource type="Texture2D" uid="uid://pyav6fadbhix" path="res://racecar/assets/placeholders/racetrack.png" id="3_vj7kx"]
+
+[node name="Main" type="Node2D" unique_id=385830540]
+script = ExtResource("1_vj7kx")
+
+[node name="Background" type="Sprite2D" parent="." unique_id=369628416]
+scale = Vector2(4.5, 4.5)
+texture = ExtResource("2_1iq5d")
+centered = false
+
+[node name="Racetrack" type="Sprite2D" parent="." unique_id=769049001]
+position = Vector2(576, 324)
+texture = ExtResource("3_vj7kx")
+
+[node name="Racecar" parent="." unique_id=334150950 instance=ExtResource("2_pa8gf")]
+position = Vector2(37, 15)
