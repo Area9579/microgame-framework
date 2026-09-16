@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cngcwsrpbx4w1"
-path="res://.godot/imported/enemy-sprite.png-e85615e1155ef48660df79ea67ec1b47.ctex"
+uid="uid://b8gcscydxkwt2"
+path="res://.godot/imported/world-background.png-0b12808e6f948122d6da7087519b09bc.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://SwordSticker/game-sprites/assets/enemy/enemy-sprite.png"
-dest_files=["res://.godot/imported/enemy-sprite.png-e85615e1155ef48660df79ea67ec1b47.ctex"]
+source_file="res://SwordSticker/game-sprites/assets/world/world-background.png"
+dest_files=["res://.godot/imported/world-background.png-0b12808e6f948122d6da7087519b09bc.ctex"]
 
 [params]
 

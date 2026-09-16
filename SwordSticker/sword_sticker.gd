@@ -8,7 +8,7 @@ const STICKER = preload("res://SwordSticker/sticker.tscn")
 var projectile: Sprite2D
 @onready var proj_point: Vector2 = $ProjPoint.get_global_position()
 
-@onready var sprite_2d: Sprite2D = $Sprite2D
+@onready var spin_world: Sprite2D = $SpinWorld
 var speed : float = 1
 @export var proj_speed : int = 1000
 var proj_moving : bool = false
@@ -34,7 +34,7 @@ func lose():
 	GameManager.lose()
 
 func _process(delta: float) -> void:
-	sprite_2d.rotate(speed * delta)
+	spin_world.rotate(speed * delta)
 	
 	if proj_moving:
 		projectile.set_position(
@@ -54,9 +54,9 @@ func _process(delta: float) -> void:
 func create_spinner_sticker():
 	var sticker = STICKER.instantiate()
 	sticker.get_child(0).queue_free()
-	sprite_2d.add_child(sticker)
+	spin_world.add_child(sticker)
 	sticker.set_global_position(stick_point)
-	sticker.rotation -= sprite_2d.rotation
+	sticker.rotation -= spin_world.rotation
 
 func create_projectile():
 	var sticker = STICKER.instantiate()
@@ -68,18 +68,18 @@ func create_enemies(num : int):
 	for _i in range(0,num):
 		var enemy = ENEMY.instantiate()
 		center.add_child(enemy)
-		enemy.rotate(sprite_2d.rotation)
+		enemy.rotate(spin_world.rotation)
 		var rads = deg_to_rad(randi_range(1,360))
-		var dist = sprite_2d.get_global_position().distance_to(stick_point)
+		var dist = spin_world.get_global_position().distance_to(stick_point)
 		enemy.set_position(polar_to_cartesian(rads,dist))
 		
 func create_villagers(num : int):
 	for _i in range(0,num):
 		var villager = VILLAGER.instantiate()
 		center.add_child(villager)
-		villager.rotate(sprite_2d.rotation)
+		villager.rotate(spin_world.rotation)
 		var rads = deg_to_rad(randf_range(1,360))
-		var dist = sprite_2d.get_global_position().distance_to(stick_point)
+		var dist = spin_world.get_global_position().distance_to(stick_point)
 		villager.set_position(polar_to_cartesian(rads,dist))
 	
 func polar_to_cartesian(radians : float, dist : float):

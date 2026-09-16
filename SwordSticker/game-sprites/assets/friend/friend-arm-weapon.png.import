@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cngcwsrpbx4w1"
-path="res://.godot/imported/enemy-sprite.png-e85615e1155ef48660df79ea67ec1b47.ctex"
+uid="uid://dnlea2aw442ud"
+path="res://.godot/imported/friend-arm-weapon.png-6d57cd4f1f08c67beaa770899a0d01eb.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://SwordSticker/game-sprites/assets/enemy/enemy-sprite.png"
-dest_files=["res://.godot/imported/enemy-sprite.png-e85615e1155ef48660df79ea67ec1b47.ctex"]
+source_file="res://SwordSticker/game-sprites/assets/friend/friend-arm-weapon.png"
+dest_files=["res://.godot/imported/friend-arm-weapon.png-6d57cd4f1f08c67beaa770899a0d01eb.ctex"]
 
 [params]
 
