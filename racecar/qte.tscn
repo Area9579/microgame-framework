@@ -1,0 +1,83 @@
+[gd_scene format=3 uid="uid://m8mif51xpyfj"]
+
+[ext_resource type="Script" uid="uid://dgb3gvuc2uk32" path="res://racecar/qte.gd" id="1_jnbvj"]
+[ext_resource type="Shader" uid="uid://bnv0sstqygmnu" path="res://qte.gdshader" id="1_u0u4f"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_a7qlb"]
+resource_local_to_scene = true
+shader = ExtResource("1_u0u4f")
+shader_parameter/first_color = Color(0, 0.78431374, 0, 1)
+shader_parameter/second_color = Color(1, 1, 0, 1)
+shader_parameter/third_color = Color(0.78431374, 0, 0, 1)
+shader_parameter/primary_color = Color(1, 1, 1, 1)
+shader_parameter/outline_color = Color(0, 0, 0, 1)
+shader_parameter/unfilled_color = Color(0.443, 0.443, 0.443, 1)
+shader_parameter/value = 1.0
+shader_parameter/smooth_ = 0.005
+shader_parameter/width_in = 0.78
+shader_parameter/width_out = 0.95
+shader_parameter/border_width = 0.03
+
+[node name="QTE" type="Control" unique_id=170823615]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_jnbvj")
+
+[node name="Circle" type="ColorRect" parent="." unique_id=822664396]
+unique_name_in_owner = true
+material = SubResource("ShaderMaterial_a7qlb")
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 100.0
+offset_bottom = 100.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="KeyLabel" type="Label" parent="Circle" unique_id=1186958960]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -111.5
+offset_top = -34.5
+offset_right = 111.5
+offset_bottom = 34.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/outline_size = 20
+theme_override_font_sizes/font_size = 50
+text = "Q"
+horizontal_alignment = 1
+
+[node name="SuccessLabel" type="Label" parent="Circle" unique_id=2079521938]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -102.0
+offset_top = 6.0
+offset_right = 121.0
+offset_bottom = 75.0
+grow_horizontal = 2
+grow_vertical = 2
+rotation = -0.43633232
+theme_override_constants/outline_size = 20
+theme_override_font_sizes/font_size = 50
+text = "SUCCESS"
