@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://clxwbhv6hpjjv"
-path="res://.godot/imported/sword-sprite.png-89a258916437e11d774efee9a2bdbec7.ctex"
+uid="uid://by01um4y8yqdn"
+path="res://.godot/imported/enemy-arm-other-sprite.png-8f257d3a46c661c4a02c22b78596948c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://SwordSticker/sword-sprite.png"
-dest_files=["res://.godot/imported/sword-sprite.png-89a258916437e11d774efee9a2bdbec7.ctex"]
+source_file="res://SwordSticker/game-sprites/assets/enemy/enemy-arm-other-sprite.png"
+dest_files=["res://.godot/imported/enemy-arm-other-sprite.png-8f257d3a46c661c4a02c22b78596948c.ctex"]
 
 [params]
 

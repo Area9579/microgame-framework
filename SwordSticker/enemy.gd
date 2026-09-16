@@ -1,9 +1,12 @@
 extends Area2D
 
-var speed : int = 90
+var speed : int = 120
 var angle : float = 0
 var first_time : bool = true
 
+func _ready() -> void:
+	speed += randi_range(-15,30)
+	
 func _process(delta: float) -> void:
 	if position == Vector2.ZERO:
 		return

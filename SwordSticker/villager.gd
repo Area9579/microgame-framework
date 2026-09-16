@@ -1,6 +1,6 @@
 extends Area2D
 
-var speed : int = 70
+var speed : int = 110
 var angle : float = 0
 var first_time : bool = true
 var jump : float = 0

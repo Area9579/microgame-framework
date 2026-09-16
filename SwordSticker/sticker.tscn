@@ -1,15 +1,19 @@
 [gd_scene format=3 uid="uid://cpvw70yi625en"]
 
-[ext_resource type="Texture2D" uid="uid://dowbc4oitb623" path="res://Framework/Assets/warioware_icon.png" id="1_6s24i"]
+[ext_resource type="Texture2D" uid="uid://b38om23e0mj34" path="res://SwordSticker/game-sprites/assets/world/sword-sprite.png" id="1_6s24i"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_k2tvh"]
-radius = 194.16487
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6s24i"]
+size = Vector2(120.00003, 370.00024)
 
 [node name="Sticker" type="Sprite2D" unique_id=169067741]
 scale = Vector2(0.1, 0.1)
 texture = ExtResource("1_6s24i")
 
 [node name="CharacterBody2D" type="CharacterBody2D" parent="." unique_id=380706941]
+collision_layer = 3
+collision_mask = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D" unique_id=177333809]
-shape = SubResource("CircleShape2D_k2tvh")
+position = Vector2(-2.0861623e-06, 4.999987)
+scale = Vector2(0.99999917, 0.99999917)
+shape = SubResource("RectangleShape2D_6s24i")

@@ -1,19 +1,24 @@
 [gd_scene format=3 uid="uid://2qub4oey1fd0"]
 
-[ext_resource type="Texture2D" uid="uid://poppqnyt7wlt" path="res://Framework/Assets/white_gradient.png" id="1_ce1xx"]
 [ext_resource type="Script" uid="uid://cj0j84ml3ugbs" path="res://SwordSticker/villager.gd" id="1_ikl8y"]
+[ext_resource type="Texture2D" uid="uid://dlmkyt2qntfrs" path="res://SwordSticker/game-sprites/assets/friend/friend-sprite.png" id="2_ikl8y"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_k2tvh"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ikl8y"]
+size = Vector2(73, 28)
 
 [node name="Villager" type="Area2D" unique_id=79544171]
+collision_layer = 2
+collision_mask = 2
 script = ExtResource("1_ikl8y")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=73155784]
+rotation = 1.5707964
 scale = Vector2(0.1, 0.1)
-texture = ExtResource("1_ce1xx")
+texture = ExtResource("2_ikl8y")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=51530691]
-shape = SubResource("CircleShape2D_k2tvh")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1987322091]
+position = Vector2(-0.5, 0)
+shape = SubResource("RectangleShape2D_ikl8y")
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

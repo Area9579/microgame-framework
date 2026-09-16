@@ -2,26 +2,30 @@ extends MicroGame
 
 const STICKER = preload("res://SwordSticker/sticker.tscn")
 @onready var stick_point: Vector2 = $StickPoint.get_global_position()
+@onready var counter_label: Label = $LoseTimer/CounterLabel
+@onready var lose_timer: Timer = $LoseTimer
 
 var projectile: Sprite2D
 @onready var proj_point: Vector2 = $ProjPoint.get_global_position()
 
 @onready var sprite_2d: Sprite2D = $Sprite2D
 var speed : float = 1
-@export var proj_speed : int = 500
+@export var proj_speed : int = 1000
 var proj_moving : bool = false
 
 @onready var center: Node2D = $Center
 const ENEMY = preload("res://SwordSticker/enemy.tscn")
 const VILLAGER = preload("res://SwordSticker/villager.tscn")
 
-var count : int = 0
+var count : int = 10
 
 func _ready() -> void:
 	create_projectile()
 	speed *= exp(difficulty)
-	create_enemies(int(difficulty * 10 + 4))
-	create_villagers(int(difficulty * 11 + 3))
+	create_enemies(int(difficulty * 5 + 4))
+	create_villagers(int(difficulty * 6 + 3))
+	
+	lose_timer.start()
 
 func win():
 	GameManager.win()
@@ -41,9 +45,6 @@ func _process(delta: float) -> void:
 			projectile.queue_free()
 			proj_moving = false
 			
-			count += 1
-			if count == 3:
-				win()
 			create_projectile()
 			
 	elif Input.is_action_just_pressed("space") and projectile:
@@ -52,6 +53,7 @@ func _process(delta: float) -> void:
 
 func create_spinner_sticker():
 	var sticker = STICKER.instantiate()
+	sticker.get_child(0).queue_free()
 	sprite_2d.add_child(sticker)
 	sticker.set_global_position(stick_point)
 	sticker.rotation -= sprite_2d.rotation
@@ -84,6 +86,16 @@ func polar_to_cartesian(radians : float, dist : float):
 	return Vector2(dist * cos(radians),dist * sin(radians))
 	
 
+func _on_lose_timer_timeout() -> void:
+	count -= 1
+	counter_label.text = "Seconds Left: " + str(count)
+	if count <= 0:
+		lose()
 
-func _on_timer_timeout() -> void:
-	lose()
+func increase_count() -> void:
+	counter_label.text = "Seconds Left: " + str(count) + "\n BONUS! +1"
+	count += 1
+
+func decrease_count() -> void:
+	counter_label.text = "Seconds Left: " + str(count) + "\n PENALTY! -1"
+	count -= 1
