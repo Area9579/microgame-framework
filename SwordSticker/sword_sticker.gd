@@ -1,5 +1,7 @@
 extends MicroGame
 
+@onready var sfx_sword_slam: AudioStreamPlayer = $SfxSwordSlam
+
 const STICKER = preload("res://SwordSticker/sticker.tscn")
 @onready var stick_point: Vector2 = $StickPoint.get_global_position()
 @onready var counter_label: Label = $LoseTimer/CounterLabel
@@ -57,6 +59,7 @@ func create_spinner_sticker():
 	spin_world.add_child(sticker)
 	sticker.set_global_position(stick_point)
 	sticker.rotation -= spin_world.rotation
+	sfx_sword_slam.play(1.15)
 
 func create_projectile():
 	var sticker = STICKER.instantiate()

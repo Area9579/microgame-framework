@@ -1,12 +1,18 @@
 [gd_scene format=3 uid="uid://cb4ahbwg54vny"]
 
 [ext_resource type="Script" uid="uid://ct3vkf1otwvy4" path="res://SwordSticker/sword_sticker.gd" id="1_qq8mt"]
+[ext_resource type="AudioStream" uid="uid://duxfxmjoborxk" path="res://SwordSticker/SFX/sfx_sword_slam.mp3" id="2_bng4l"]
 [ext_resource type="Texture2D" uid="uid://xrfv5w7hvs6v" path="res://SwordSticker/game-sprites/assets/world/world-ground.png" id="2_wkdf7"]
 [ext_resource type="Script" uid="uid://cgfei0atdjbok" path="res://SwordSticker/center.gd" id="3_3qb1l"]
 [ext_resource type="Texture2D" uid="uid://b8gcscydxkwt2" path="res://SwordSticker/game-sprites/assets/world/world-background.png" id="3_bng4l"]
+[ext_resource type="AudioStream" uid="uid://co21hptjm1p5k" path="res://SwordSticker/SFX/sfx_villager_dies.mp3" id="6_aaxtg"]
+[ext_resource type="AudioStream" uid="uid://ct0qneai3dgn2" path="res://SwordSticker/SFX/sfx_ogre_dies.mp3" id="7_1wblj"]
 
 [node name="SwordSticker" type="Node2D" unique_id=221769728]
 script = ExtResource("1_qq8mt")
+
+[node name="SfxSwordSlam" type="AudioStreamPlayer" parent="." unique_id=1609084578]
+stream = ExtResource("2_bng4l")
 
 [node name="SpinWorld" type="Sprite2D" parent="." unique_id=1989300692]
 position = Vector2(550, 78)
@@ -25,6 +31,12 @@ position = Vector2(545, 591)
 [node name="Center" type="Node2D" parent="." unique_id=1045379017]
 position = Vector2(552, 72)
 script = ExtResource("3_3qb1l")
+
+[node name="SfxVillagerDies" type="AudioStreamPlayer" parent="Center" unique_id=191953653]
+stream = ExtResource("6_aaxtg")
+
+[node name="SfxOgreDies" type="AudioStreamPlayer" parent="Center" unique_id=1078820586]
+stream = ExtResource("7_1wblj")
 
 [node name="LoseTimer" type="Timer" parent="." unique_id=2022348710]
 
