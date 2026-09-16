@@ -3,6 +3,10 @@ extends Area2D
 var speed : int = 120
 var angle : float = 0
 var first_time : bool = true
+@onready var left_arm: Sprite2D = $Sprite2D/LeftArm
+@onready var right_arm: Sprite2D = $Sprite2D/RightArm
+var count : float = 0
+var jiggle_mult : int = 4 + randi_range(-1,20)
 
 func _ready() -> void:
 	speed += randi_range(-15,30)
@@ -18,6 +22,12 @@ func _process(delta: float) -> void:
 		set_position(polar_to_cartesian(angle,322))
 	
 	rotation = -get_position().angle_to(Vector2.RIGHT)
+	
+	right_arm.rotation = deg_to_rad(cos(count) * 10)
+	left_arm.rotation = deg_to_rad(sin(count) * 10)
+	skew = deg_to_rad(cos(count) * cos(count) * 10)
+	count += delta * jiggle_mult
+	
 
 func polar_to_cartesian(radians : float, dist : float):
 	return Vector2(dist * cos(radians),dist * sin(radians))
