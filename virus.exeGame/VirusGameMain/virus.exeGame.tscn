@@ -1,6 +1,14 @@
 [gd_scene format=3 uid="uid://biykn6tf00jg8"]
 
 [ext_resource type="Script" uid="uid://cedikiplamq4j" path="res://virus.exeGame/VirusGameMain/virus.exe_game.gd" id="1_xfgvp"]
+[ext_resource type="Texture2D" uid="uid://ckb7ro4u86h2c" path="res://virus.exeGame/Assets/sprites/W98-2.png" id="2_gm1al"]
 
 [node name="Virus_exeGame" type="Node2D" unique_id=141195700]
 script = ExtResource("1_xfgvp")
+
+[node name="background" type="TextureRect" parent="." unique_id=770159866]
+offset_left = -2.0
+offset_top = 1.0
+offset_right = 105.0
+offset_bottom = 86.0
+texture = ExtResource("2_gm1al")
