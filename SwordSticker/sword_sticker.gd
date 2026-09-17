@@ -15,6 +15,13 @@ var speed : float = 1
 @export var proj_speed : int = 1000
 var proj_moving : bool = false
 
+@onready var sfx_ticking: AudioStreamPlayer = $SfxTicking
+@onready var extra_time_label: Label = $LoseTimer/ExtraTimeLabel
+
+@onready var start_timer: Timer = $InstructionMenu/StartTimer
+@onready var instruction_menu: Control = $InstructionMenu
+@onready var animation_player: AnimationPlayer = $LoseTimer/CounterLabel/AnimationPlayer
+
 @onready var center: Node2D = $Center
 const ENEMY = preload("res://SwordSticker/enemy.tscn")
 const VILLAGER = preload("res://SwordSticker/villager.tscn")
@@ -27,16 +34,58 @@ func _ready() -> void:
 	create_enemies(int(difficulty * 5 + 4))
 	create_villagers(int(difficulty * 6 + 3))
 	
-	lose_timer.start()
+
+
+@onready var winscreen: Control = $Winscreen
+@onready var win_player: AnimationPlayer = $Winscreen/WinPlayer
+@onready var sfx_ogre_dies: AudioStreamPlayer = $Center/SfxOgreDies
 
 func win():
-	GameManager.win()
+	if losescreen.visible == true:
+		return
 	
+	counter_label.visible = false
+	extra_time_label.visible = false
+	start_timer.start(100)
+	projectile.visible = false
+	
+	
+	winscreen.visible = true
+	win_player.play("SwordStab")
+	win_player.connect("animation_finished",player_won)
+	sfx_ogre_dies.play()
+	
+	
+	
+func player_won(_null = null):
+	GameManager.win()
+
+@onready var losescreen: Control = $Losescreen
+@onready var lose_player: AnimationPlayer = $Losescreen/LosePlayer
+@onready var sfx_villager_dies: AudioStreamPlayer = $Center/SfxVillagerDies
+
 func lose():
+	if winscreen.visible == true:
+		return
+	
+	counter_label.visible = false
+	extra_time_label.visible = false
+	start_timer.start(100)
+	projectile.visible = false
+	
+	losescreen.visible = true
+	lose_player.play("SwordStab")
+	lose_player.connect("animation_finished",player_lost)
+	sfx_villager_dies.play()
+
+func player_lost(_null = null):
 	GameManager.lose()
 
 func _process(delta: float) -> void:
 	spin_world.rotate(speed * delta)
+	
+	if not start_timer.is_stopped():
+		return
 	
 	if proj_moving:
 		projectile.set_position(
@@ -48,6 +97,7 @@ func _process(delta: float) -> void:
 			proj_moving = false
 			
 			create_projectile()
+			
 			
 	elif Input.is_action_just_pressed("space") and projectile:
 		proj_moving = true
@@ -90,15 +140,28 @@ func polar_to_cartesian(radians : float, dist : float):
 	
 
 func _on_lose_timer_timeout() -> void:
+	sfx_ticking.play()
+	
+	animation_player.play("CounterScale")
+	
 	count -= 1
-	counter_label.text = "Seconds Left: " + str(count)
+	counter_label.text = str(count)
 	if count <= 0:
 		lose()
+		lose_timer.stop()
 
 func increase_count() -> void:
-	counter_label.text = "Seconds Left: " + str(count) + "\n BONUS! +1"
+	extra_time_label.add_text("\nBONUS! +1")
 	count += 1
+	counter_label.text = str(count)
 
 func decrease_count() -> void:
-	counter_label.text = "Seconds Left: " + str(count) + "\n PENALTY! -1"
+	extra_time_label.add_text("\nPENALTY! -1")
 	count -= 1
+	counter_label.text = str(count)
+
+
+func _on_start_timer_timeout() -> void:
+	lose_timer.start()
+	center.visible = true
+	instruction_menu.visible = false
