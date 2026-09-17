@@ -228,7 +228,7 @@ texture = ExtResource("3_bng4l")
 metadata/_edit_lock_ = true
 
 [node name="StickPoint" type="Node2D" parent="." unique_id=1513382769]
-position = Vector2(550, 404)
+position = Vector2(550, 415)
 
 [node name="ProjPoint" type="Node2D" parent="." unique_id=485029104]
 position = Vector2(545, 591)

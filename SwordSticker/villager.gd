@@ -21,7 +21,7 @@ func _process(delta: float) -> void:
 		first_time = false
 	else:
 		angle += delta * speed / 100
-		set_position(polar_to_cartesian(angle,322))
+		set_position(polar_to_cartesian(angle,415-72))
 	
 	rotation = -get_position().angle_to(Vector2.RIGHT)
 	
