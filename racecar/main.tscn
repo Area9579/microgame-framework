@@ -1,15 +1,14 @@
 [gd_scene format=3 uid="uid://cqqf5eex1xppe"]
 
 [ext_resource type="Script" uid="uid://1xykq3ylekac" path="res://racecar/racecar_main.gd" id="1_vj7kx"]
-[ext_resource type="Texture2D" uid="uid://cyfvfsm6676qy" path="res://racecar/assets/placeholders/background.png" id="2_1iq5d"]
 [ext_resource type="PackedScene" uid="uid://caxpktqfd0bni" path="res://racecar/racecar.tscn" id="2_pa8gf"]
 [ext_resource type="Script" uid="uid://carddfynqxf1t" path="res://racecar/resources/checkpoint_data.gd" id="2_vrr6o"]
 [ext_resource type="Resource" uid="uid://cggj16e2fa7wg" path="res://racecar/resources/checkpoint_0.tres" id="3_fud5c"]
-[ext_resource type="Texture2D" uid="uid://pyav6fadbhix" path="res://racecar/assets/placeholders/racetrack.png" id="3_vj7kx"]
 [ext_resource type="Resource" uid="uid://daxe1jhlknpug" path="res://racecar/resources/checkpoint_1.tres" id="4_wqxri"]
 [ext_resource type="Resource" uid="uid://cpkxk2so3lgq6" path="res://racecar/resources/checkpoint_2.tres" id="5_tejg4"]
 [ext_resource type="PackedScene" uid="uid://m8mif51xpyfj" path="res://racecar/qte.tscn" id="5_w3d7q"]
 [ext_resource type="Resource" uid="uid://wiokim0rp600" path="res://racecar/resources/checkpoint_3.tres" id="6_fyp04"]
+[ext_resource type="Texture2D" uid="uid://cfpruc2xadf20" path="res://racecar/assets/pngs/race_track.png" id="7_dio63"]
 
 [sub_resource type="Curve2D" id="Curve2D_w3d7q"]
 _data = {
@@ -59,13 +58,10 @@ script = ExtResource("1_vj7kx")
 checkpoints = Array[ExtResource("2_vrr6o")]([ExtResource("3_fud5c"), ExtResource("4_wqxri"), ExtResource("5_tejg4"), ExtResource("6_fyp04")])
 
 [node name="Background" type="Sprite2D" parent="." unique_id=369628416]
-scale = Vector2(4.5, 4.5)
-texture = ExtResource("2_1iq5d")
+position = Vector2(-62, -301)
+scale = Vector2(2.5039063, 2.5039063)
+texture = ExtResource("7_dio63")
 centered = false
-
-[node name="Racetrack" type="Sprite2D" parent="." unique_id=769049001]
-position = Vector2(579, 320)
-texture = ExtResource("3_vj7kx")
 
 [node name="TrackPath" type="Path2D" parent="." unique_id=1149691243]
 curve = SubResource("Curve2D_w3d7q")
@@ -75,8 +71,8 @@ position = Vector2(330, 135)
 rotation = -0.32596993
 
 [node name="Racecar" parent="TrackPath/CarFollow" unique_id=334150950 instance=ExtResource("2_pa8gf")]
-position = Vector2(1.6678772, -20.547958)
-rotation = 1.3731675
+position = Vector2(-36.69278, 227.21498)
+rotation = 0.29670596
 
 [node name="Explosion" type="AnimatedSprite2D" parent="TrackPath/CarFollow" unique_id=1649735408]
 sprite_frames = SubResource("SpriteFrames_g6afx")
@@ -99,7 +95,6 @@ curve = SubResource("Curve2D_quvn4")
 [node name="GameUI" type="CanvasLayer" parent="." unique_id=820429789]
 
 [node name="QTE" parent="GameUI" unique_id=170823615 instance=ExtResource("5_w3d7q")]
-visible = false
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
