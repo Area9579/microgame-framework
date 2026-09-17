@@ -27,8 +27,8 @@ func _physics_process(delta):
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 
 	move_and_slide() 
-	if Input.is_action_just_pressed("left_click"):
-		print("hi")
+	if Input.is_action_just_pressed("left_click") and position.x <= 544:
+		
 		position.x += 32
 	if Input.is_action_just_pressed("a"):
 		position.x -= 1

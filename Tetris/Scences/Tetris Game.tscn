@@ -1,9 +1,10 @@
 [gd_scene format=3 uid="uid://db7e73mnnwnl"]
 
-[ext_resource type="Script" uid="uid://bxi78st6d8fie" path="res://Tetris/Scences/tetris_game.gd" id="1_jm8kw"]
+[ext_resource type="Script" uid="uid://bxi78st6d8fie" path="res://Tetris/Scripts/tetris_game.gd" id="1_jm8kw"]
 [ext_resource type="PackedScene" uid="uid://cruppaft5r8l8" path="res://Tetris/Scences/Player.tscn" id="1_vgudk"]
 [ext_resource type="Texture2D" uid="uid://klc76s7h0lg6" path="res://Tetris/Assets/Tetris Blocks Test/Sprite-0004.png" id="2_aubwc"]
 [ext_resource type="PackedScene" uid="uid://bdjgu1vihrou0" path="res://Tetris/Scences/Blocks.tscn" id="3_4p4p8"]
+[ext_resource type="PackedScene" uid="uid://bql81h0cdghwi" path="res://Tetris/Scences/WinBlocks.tscn" id="5_5cajt"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4p4p8"]
 texture = ExtResource("2_aubwc")
@@ -41,7 +42,7 @@ zoom = Vector2(2, 2)
 
 [node name="CharacterBody2D" parent="." unique_id=1021292808 instance=ExtResource("1_vgudk")]
 z_index = 5
-position = Vector2(16, -304)
+position = Vector2(16, -283)
 
 [node name="TileMap" type="TileMap" parent="." unique_id=1121242535]
 position = Vector2(8, -8)
@@ -104,5 +105,8 @@ position = Vector2(480, -60)
 position = Vector2(512, -60)
 metadata/_edit_group_ = true
 
-[node name="Area2D2" parent="." unique_id=1745637183 instance=ExtResource("3_4p4p8")]
+[node name="Area2D8" parent="Area2D/Bad Blocks" unique_id=1745637183 instance=ExtResource("3_4p4p8")]
 position = Vector2(544, -60)
+
+[node name="Area2D3" parent="." unique_id=54487488 instance=ExtResource("5_5cajt")]
+position = Vector2(192, -60)
