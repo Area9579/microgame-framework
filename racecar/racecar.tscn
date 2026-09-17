@@ -1,14 +1,8 @@
 [gd_scene format=3 uid="uid://caxpktqfd0bni"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_g6afx"]
-size = Vector2(20, 34)
-
-[node name="Racecar" type="CharacterBody2D" unique_id=334150950]
+[node name="Racecar" type="Sprite2D" unique_id=1701981910]
 
 [node name="Panel" type="ColorRect" parent="." unique_id=1276435329]
-offset_right = 80.0
-offset_bottom = 136.0
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=926994619]
-position = Vector2(10, 17)
-shape = SubResource("RectangleShape2D_g6afx")
+offset_right = 40.0
+offset_bottom = 68.0
+color = Color(0.77302325, 0.0006058699, 0.8002765, 1)

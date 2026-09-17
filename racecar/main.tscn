@@ -3,10 +3,60 @@
 [ext_resource type="Script" uid="uid://1xykq3ylekac" path="res://racecar/racecar_main.gd" id="1_vj7kx"]
 [ext_resource type="Texture2D" uid="uid://cyfvfsm6676qy" path="res://racecar/assets/placeholders/background.png" id="2_1iq5d"]
 [ext_resource type="PackedScene" uid="uid://caxpktqfd0bni" path="res://racecar/racecar.tscn" id="2_pa8gf"]
+[ext_resource type="Script" uid="uid://carddfynqxf1t" path="res://racecar/resources/checkpoint_data.gd" id="2_vrr6o"]
+[ext_resource type="Resource" uid="uid://cggj16e2fa7wg" path="res://racecar/resources/checkpoint_0.tres" id="3_fud5c"]
 [ext_resource type="Texture2D" uid="uid://pyav6fadbhix" path="res://racecar/assets/placeholders/racetrack.png" id="3_vj7kx"]
+[ext_resource type="Resource" uid="uid://daxe1jhlknpug" path="res://racecar/resources/checkpoint_1.tres" id="4_wqxri"]
+[ext_resource type="Resource" uid="uid://cpkxk2so3lgq6" path="res://racecar/resources/checkpoint_2.tres" id="5_tejg4"]
+[ext_resource type="PackedScene" uid="uid://m8mif51xpyfj" path="res://racecar/qte.tscn" id="5_w3d7q"]
+[ext_resource type="Resource" uid="uid://wiokim0rp600" path="res://racecar/resources/checkpoint_3.tres" id="6_fyp04"]
+
+[sub_resource type="Curve2D" id="Curve2D_w3d7q"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 330, 135, 0, 0, 0, 0, 401, 111, 0, 0, 0, 0, 482, 111, 0, 0, 0, 0, 759, 111, 0, 0, 0, 0, 825, 130, 0, 0, 0, 0, 862, 144, 0, 0, 0, 0, 908, 178, 0, 0, 0, 0, 935, 221, 0, 0, 0, 0, 949, 258, 0, 0, 0, 0, 955, 293, 0, 0, 0, 0, 954, 333, 0, 0, 0, 0, 950, 368, 0, 0, 0, 0, 936, 402, 0, 0, 0, 0, 916, 438, 0, 0, 0, 0, 876, 486, 0, 0, 0, 0, 824, 518, 0, 0, 0, 0, 716, 542, 0, 0, 0, 0, 582, 546, 0, 0, 0, 0, 386, 538, 0, 0, 0, 0, 329, 522, 0, 0, 0, 0, 227, 413, 0, 0, 0, 0, 203, 341, 0, 0, 0, 0, 194, 273, 0, 0, 0, 0, 212, 218, 0, 0, 0, 0, 330, 135)
+}
+point_count = 25
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_g6afx"]
+animations = [{
+"frames": [],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": 1,
+"name": &"explode",
+"speed": 5.0
+}]
+
+[sub_resource type="Curve2D" id="Curve2D_5h6iy"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 331, 135, 0, 0, 0, 0, 403, 112, 0, 0, 0, 0, 470, 136, 0, 0, 0, 0, 542, 83)
+}
+point_count = 4
+
+[sub_resource type="Curve2D" id="Curve2D_6sryb"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 824, 130, 0, 0, 0, 0, 875, 153, 0, 0, 0, 0, 902, 159, 0, 0, 0, 0, 940, 178)
+}
+point_count = 4
+
+[sub_resource type="Curve2D" id="Curve2D_t0ucs"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 825, 517, 0, 0, 0, 0, 764, 541, 0, 0, 0, 0, 650, 498)
+}
+point_count = 3
+
+[sub_resource type="Curve2D" id="Curve2D_quvn4"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 330, 522, 0, 0, 0, 0, 215, 370, 0, 0, 0, 0, 169, 303)
+}
+point_count = 3
 
 [node name="Main" type="Node2D" unique_id=385830540]
 script = ExtResource("1_vj7kx")
+checkpoints = Array[ExtResource("2_vrr6o")]([ExtResource("3_fud5c"), ExtResource("4_wqxri"), ExtResource("5_tejg4"), ExtResource("6_fyp04")])
 
 [node name="Background" type="Sprite2D" parent="." unique_id=369628416]
 scale = Vector2(4.5, 4.5)
@@ -14,8 +64,60 @@ texture = ExtResource("2_1iq5d")
 centered = false
 
 [node name="Racetrack" type="Sprite2D" parent="." unique_id=769049001]
-position = Vector2(576, 324)
+position = Vector2(579, 320)
 texture = ExtResource("3_vj7kx")
 
-[node name="Racecar" parent="." unique_id=334150950 instance=ExtResource("2_pa8gf")]
-position = Vector2(37, 15)
+[node name="TrackPath" type="Path2D" parent="." unique_id=1149691243]
+curve = SubResource("Curve2D_w3d7q")
+
+[node name="CarFollow" type="PathFollow2D" parent="TrackPath" unique_id=688844738]
+position = Vector2(330, 135)
+rotation = -0.32596993
+
+[node name="Racecar" parent="TrackPath/CarFollow" unique_id=334150950 instance=ExtResource("2_pa8gf")]
+position = Vector2(1.6678772, -20.547958)
+rotation = 1.3731675
+
+[node name="Explosion" type="AnimatedSprite2D" parent="TrackPath/CarFollow" unique_id=1649735408]
+sprite_frames = SubResource("SpriteFrames_g6afx")
+animation = &"explode"
+
+[node name="FailPaths" type="Node2D" parent="." unique_id=1216193099]
+
+[node name="FailPath0" type="Path2D" parent="FailPaths" unique_id=1942192359]
+curve = SubResource("Curve2D_5h6iy")
+
+[node name="FailPath1" type="Path2D" parent="FailPaths" unique_id=1956890818]
+curve = SubResource("Curve2D_6sryb")
+
+[node name="FailPath2" type="Path2D" parent="FailPaths" unique_id=1428725322]
+curve = SubResource("Curve2D_t0ucs")
+
+[node name="FailPath3" type="Path2D" parent="FailPaths" unique_id=189281990]
+curve = SubResource("Curve2D_quvn4")
+
+[node name="GameUI" type="CanvasLayer" parent="." unique_id=820429789]
+
+[node name="QTE" parent="GameUI" unique_id=170823615 instance=ExtResource("5_w3d7q")]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+
+[node name="CountdownLabel" type="Label" parent="GameUI" unique_id=1678129848]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -66.0
+offset_top = -11.5
+offset_right = 66.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Start Countdown"
+
+[node name="QteTimer" type="Timer" parent="." unique_id=189677425]
+one_shot = true
