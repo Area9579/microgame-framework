@@ -99,6 +99,7 @@ curve = SubResource("Curve2D_quvn4")
 [node name="GameUI" type="CanvasLayer" parent="." unique_id=820429789]
 
 [node name="QTE" parent="GameUI" unique_id=170823615 instance=ExtResource("5_w3d7q")]
+visible = false
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -106,6 +107,7 @@ anchor_right = 0.5
 anchor_bottom = 0.5
 
 [node name="CountdownLabel" type="Label" parent="GameUI" unique_id=1678129848]
+visible = false
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -119,5 +121,57 @@ grow_horizontal = 2
 grow_vertical = 2
 text = "Start Countdown"
 
+[node name="GameOverPanel" type="Panel" parent="GameUI" unique_id=272340959]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="GameUI/GameOverPanel" unique_id=1497832208]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -132.5
+offset_top = -46.5
+offset_right = 132.5
+offset_bottom = 46.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 8
+
+[node name="GameOverTitle" type="Label" parent="GameUI/GameOverPanel/VBoxContainer" unique_id=1285457330]
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 64
+text = "SUCCESS!"
+horizontal_alignment = 1
+
+[node name="GameOverLabel" type="Label" parent="GameUI/GameOverPanel/VBoxContainer" unique_id=2026345393]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "You are awesome!"
+horizontal_alignment = 1
+
+[node name="ButtonContainer" type="HBoxContainer" parent="GameUI/GameOverPanel/VBoxContainer" unique_id=289836698]
+layout_mode = 2
+theme_override_constants/separation = 24
+alignment = 1
+
+[node name="AgainButton" type="Button" parent="GameUI/GameOverPanel/VBoxContainer/ButtonContainer" unique_id=2110323257]
+layout_mode = 2
+text = "TRY AGAIN"
+
+[node name="MenuButton" type="Button" parent="GameUI/GameOverPanel/VBoxContainer/ButtonContainer" unique_id=277125684]
+layout_mode = 2
+text = "RETURN TO MENU"
+
 [node name="QteTimer" type="Timer" parent="." unique_id=189677425]
 one_shot = true
+
+[connection signal="pressed" from="GameUI/GameOverPanel/VBoxContainer/ButtonContainer/AgainButton" to="." method="_on_again_button_pressed"]
+[connection signal="pressed" from="GameUI/GameOverPanel/VBoxContainer/ButtonContainer/MenuButton" to="." method="_on_menu_button_pressed"]

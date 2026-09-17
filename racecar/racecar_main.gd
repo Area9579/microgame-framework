@@ -1,9 +1,6 @@
 class_name Racecar
 extends MicroGame
 
-signal game_won
-signal game_lost
-
 @onready var track_path: Path2D = $TrackPath
 @onready var car_follow: PathFollow2D = $TrackPath/CarFollow
 @onready var fail_paths: Array[Path2D] = [
@@ -14,6 +11,10 @@ signal game_lost
 @onready var qte = $GameUI/QTE
 @onready var qte_timer: Timer = $QteTimer
 @onready var countdown_label: Label = $GameUI/CountdownLabel
+@onready var game_over_panel = $GameUI/GameOverPanel
+@onready var game_over_title = $GameUI/GameOverPanel/VBoxContainer/GameOverTitle
+@onready var game_over_label = $GameUI/GameOverPanel/VBoxContainer/GameOverLabel
+
 
 @export var checkpoints: Array[CheckpointData] = []
 
@@ -30,7 +31,7 @@ func run_game() -> void:
 		if not success:
 			_handle_fail(i)
 			return
-
+			
 	_handle_win()
 
 func _run_countdown() -> void:
@@ -71,7 +72,22 @@ func _handle_fail(checkpoint_index: int) -> void:
 
 	explosion.show()
 	explosion.play("explode") 
-	game_lost.emit()
+	
+	await get_tree().create_timer(0.7).timeout
+	game_over_panel.visible = true
+	game_over_title.text = "CRASHED!"
+	game_over_label.text = "Bad news... You're DEAD!"
 
 func _handle_win() -> void:
-	game_won.emit()
+	await get_tree().create_timer(0.7).timeout
+	game_over_panel.visible = true
+	game_over_title.text = "SUCCESS!"
+	game_over_label.text = "You sure know how to drive!"
+
+
+func _on_menu_button_pressed():
+	pass
+
+
+func _on_again_button_pressed():
+	get_tree().reload_current_scene()
