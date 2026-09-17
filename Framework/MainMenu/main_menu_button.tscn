@@ -4,8 +4,8 @@
 [ext_resource type="FontFile" uid="uid://nbgv5d2s0ss2" path="res://Framework/Assets/dungeon-mode.ttf" id="1_lqlyn"]
 [ext_resource type="Script" uid="uid://c0eq70gyg7rhf" path="res://Framework/Addons/TweenTool/Scripts/Components/control_tween.gd" id="2_lqlyn"]
 [ext_resource type="Script" uid="uid://cdere083tmmuo" path="res://Framework/Addons/TweenTool/Scripts/TweenResources/offset_transform_tween.gd" id="3_hiv1w"]
-[ext_resource type="Texture2D" uid="uid://donipg2stye6m" path="res://Framework/Assets/main_menu_assets/b-button-dots.png" id="3_svjsi"]
-[ext_resource type="Texture2D" uid="uid://i2weda77brhl" path="res://Framework/Assets/main_menu_assets/blurple-button.png" id="4_ty2l7"]
+[ext_resource type="Texture2D" uid="uid://c04n3r6ravu8" path="res://Framework/Assets/main_menu_assets/yellow-button.png" id="3_svjsi"]
+[ext_resource type="Texture2D" uid="uid://clb0r5wq3jb" path="res://Framework/Assets/main_menu_assets/y-button-dots.png" id="4_ty2l7"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vy41y"]
 bg_color = Color(0.68235296, 0.5019608, 0.8862745, 0)
@@ -115,7 +115,7 @@ offset_bottom = 5.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
-texture = ExtResource("4_ty2l7")
+texture = ExtResource("3_svjsi")
 
 [node name="ButtonGlow" type="TextureRect" parent="." unique_id=1906685171]
 modulate = Color(1, 1, 1, 0)
@@ -131,7 +131,7 @@ offset_bottom = 3.5
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
-texture = ExtResource("3_svjsi")
+texture = ExtResource("4_ty2l7")
 
 [node name="Intro" type="Node" parent="." unique_id=732214244 node_paths=PackedStringArray("affected_node")]
 script = ExtResource("2_lqlyn")
