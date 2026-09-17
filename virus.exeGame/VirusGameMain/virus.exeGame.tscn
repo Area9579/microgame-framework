@@ -13,3 +13,4 @@ offset_bottom = 648.0
 expand_mode = 1
 
 [node name="Sprite2D" parent="." unique_id=2076710891 instance=ExtResource("3_rta5f")]
+scale = Vector2(0.75, 0.75)
