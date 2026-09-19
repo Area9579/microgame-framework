@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://0ae1018yuxov"]
+
+[ext_resource type="Script" uid="uid://cq7w364mh6g7b" path="res://virus.exeGame/scripts/node_2d.gd" id="1_wpdp8"]
+[ext_resource type="PackedScene" uid="uid://bvdwq5ci6stjg" path="res://virus.exeGame/scenes/ms_dos_window.tscn" id="2_py21v"]
+
+[node name="spawn_terminal" type="Node2D" unique_id=1196065383 node_paths=PackedStringArray("ui_layer")]
+script = ExtResource("1_wpdp8")
+popup_scene = ExtResource("2_py21v")
+ui_layer = NodePath(".")
+
+[node name="Timer" type="Timer" parent="." unique_id=1743425802]
+wait_time = 1.5
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
