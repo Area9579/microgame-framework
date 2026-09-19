@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://nm23wq6qgp4h"
-path="res://.godot/imported/ms-dos-window.png-699213066325993952e40ea98e7bf792.ctex"
+uid="uid://b2jmmcxq2kwqm"
+path="res://.godot/imported/ms-dos-window.jpg-fbe4142240b69b37fc616444a64276d2.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://virus.exeGame/Assets/sprites/ms-dos-window.png"
-dest_files=["res://.godot/imported/ms-dos-window.png-699213066325993952e40ea98e7bf792.ctex"]
+source_file="res://virus.exeGame/Assets/sprites/ms-dos-window.jpg"
+dest_files=["res://.godot/imported/ms-dos-window.jpg-fbe4142240b69b37fc616444a64276d2.ctex"]
 
 [params]
 

@@ -1,8 +1,0 @@
-[gd_scene format=3 uid="uid://ba66yg61oe3xj"]
-
-[ext_resource type="Texture2D" uid="uid://dndn7ul1u6l0a" path="res://virus.exeGame/Assets/sprites/cursor.png" id="1_rtc0s"]
-[ext_resource type="Script" uid="uid://ogjm8qcauh2" path="res://virus.exeGame/scripts/mouse_physics.gd" id="2_a1eoi"]
-
-[node name="Sprite2D" type="Sprite2D" unique_id=2076710891]
-texture = ExtResource("1_rtc0s")
-script = ExtResource("2_a1eoi")
