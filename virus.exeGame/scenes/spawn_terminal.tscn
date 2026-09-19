@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://0ae1018yuxov"]
 
-[ext_resource type="Script" uid="uid://cq7w364mh6g7b" path="res://virus.exeGame/scripts/node_2d.gd" id="1_wpdp8"]
+[ext_resource type="Script" uid="uid://cq7w364mh6g7b" path="res://virus.exeGame/scripts/spawn-terminal.gd" id="1_wpdp8"]
 [ext_resource type="PackedScene" uid="uid://bvdwq5ci6stjg" path="res://virus.exeGame/scenes/ms_dos_window.tscn" id="2_py21v"]
 
 [node name="spawn_terminal" type="Node2D" unique_id=1196065383 node_paths=PackedStringArray("ui_layer")]
