@@ -3,6 +3,8 @@
 [ext_resource type="Script" uid="uid://cedikiplamq4j" path="res://virus.exeGame/VirusGameMain/virus_game.gd" id="1_yn0u1"]
 [ext_resource type="PackedScene" uid="uid://rpw68hnik200" path="res://virus.exeGame/scenes/background_empty.tscn" id="2_wwwno"]
 [ext_resource type="PackedScene" uid="uid://0ae1018yuxov" path="res://virus.exeGame/scenes/spawn_terminal.tscn" id="3_u8rpl"]
+[ext_resource type="PackedScene" uid="uid://rw1yhhdbcfrd" path="res://virus.exeGame/scenes/score.tscn" id="4_wwwno"]
+[ext_resource type="AudioStream" uid="uid://b0vw5ivlx5jlq" path="res://virus.exeGame/Assets/sfx/tetris_sfx.mp3" id="5_u8rpl"]
 
 [node name="Virus_exeGame" type="Node2D" unique_id=141195700]
 script = ExtResource("1_yn0u1")
@@ -13,3 +15,10 @@ offset_bottom = 648.0
 expand_mode = 1
 
 [node name="spawn_terminal" parent="." unique_id=1196065383 instance=ExtResource("3_u8rpl")]
+
+[node name="score" parent="." unique_id=1962141384 instance=ExtResource("4_wwwno")]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1315884347]
+stream = ExtResource("5_u8rpl")
+volume_db = -15.509
+autoplay = true

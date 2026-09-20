@@ -3,6 +3,7 @@ extends Node2D
 @export var popup_scene: PackedScene
 @export var ui_layer: Node 
 @onready var timer: Timer = $Timer
+@onready var terminal_sfx = $AudioStreamPlayer
 
 func _ready() -> void:
 	timer.start()
@@ -24,6 +25,9 @@ func _on_timer_timeout() -> void:
 				
 		# Add it as a child of your UI container so it renders on top
 		ui_layer.add_child(new_popup)
+		
+		# SFX
+		terminal_sfx.play()
 		
 		# Increments current scene count
 		Globals.current_terminal_count += 1
