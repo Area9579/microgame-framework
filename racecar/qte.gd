@@ -50,7 +50,7 @@ func _input(event: InputEvent) -> void:
 	if not qte_activated or qte_pass:
 		return
 	
-	if event is InputEventKey and event.pressed and event.keycode == KEY_SPACE:
+	if event is InputEventKey and event.pressed and not event.is_echo() and event.keycode == KEY_SPACE:
 		_on_success()
 
 func _on_success() -> void:
