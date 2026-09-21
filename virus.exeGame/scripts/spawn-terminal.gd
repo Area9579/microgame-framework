@@ -5,8 +5,18 @@ extends Node2D
 @onready var timer: Timer = $Timer
 @onready var terminal_sfx = $AudioStreamPlayer
 
+var last_terminal_closed : int = 0
+
 func _on_intro_intro_finished() -> void:
+	timer.wait_time = 1.20
 	timer.start()
+	
+
+func _process(delta: float) -> void:
+	if Globals.terminals_closed != last_terminal_closed:
+		if Globals.terminals_closed != 0 and Globals.terminals_closed % 3 == 0:
+			timer.wait_time -= .05
+		last_terminal_closed = Globals.terminals_closed
 
 func _on_timer_timeout() -> void:
 	if popup_scene and ui_layer:
@@ -24,6 +34,7 @@ func _on_timer_timeout() -> void:
 		)
 				
 		# Add it as a child of your UI container so it renders on top
+		new_popup.add_to_group("terminals")
 		ui_layer.add_child(new_popup)
 		
 		# SFX
@@ -31,3 +42,7 @@ func _on_timer_timeout() -> void:
 		
 		# Increments current scene count
 		Globals.current_terminal_count += 1
+
+func _on_score_game_over() -> void:
+	timer.stop()
+	Globals.reset_game()

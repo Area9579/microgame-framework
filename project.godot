@@ -17,8 +17,8 @@ config/icon="uid://dowbc4oitb623"
 
 [autoload]
 
-GameManager="*uid://caxigcjbd3chd"
 Globals="*uid://by5cofprr0ipt"
+GameManager="*uid://caxigcjbd3chd"
 
 [display]
 

@@ -1,5 +1,6 @@
 extends Node2D
 
+signal game_over
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -9,15 +10,17 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
 	# Lose condition
-	if Globals.current_terminal_count == 3:
+	if Globals.current_terminal_count >= 3:
+		# Resets scores
+		Globals.reset_game()
+		
 		GameManager.lose()
-		# Resets scores
-		Globals.current_terminal_count = 0
-		Globals.terminals_closed = 0
-	
+		game_over.emit()
+		
 	# Win condition
-	if Globals.terminals_closed == 15:
-		GameManager.win()
+	if Globals.terminals_closed >= 15:
 		# Resets scores
-		Globals.current_terminal_count = 0
-		Globals.terminals_closed = 0
+		Globals.reset_game()
+		
+		GameManager.win()
+		game_over.emit()
