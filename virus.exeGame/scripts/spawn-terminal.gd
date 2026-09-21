@@ -12,7 +12,7 @@ func _on_intro_intro_finished() -> void:
 	timer.start()
 	
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if Globals.terminals_closed != last_terminal_closed:
 		if Globals.terminals_closed != 0 and Globals.terminals_closed % 3 == 0:
 			timer.wait_time -= .05
