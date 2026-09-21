@@ -20,9 +20,4 @@ texture = ExtResource("1_ryhjd")
 position = Vector2(479, 10)
 shape = SubResource("RectangleShape2D_qqvtf")
 
-[node name="Timer" type="Timer" parent="." unique_id=1147294637]
-wait_time = 2.0
-autostart = true
-
 [connection signal="input_event" from="." to="." method="_on_input_event"]
-[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

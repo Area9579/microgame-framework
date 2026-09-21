@@ -5,7 +5,7 @@ extends Node2D
 @onready var timer: Timer = $Timer
 @onready var terminal_sfx = $AudioStreamPlayer
 
-func _ready() -> void:
+func _on_intro_intro_finished() -> void:
 	timer.start()
 
 func _on_timer_timeout() -> void:

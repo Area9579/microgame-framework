@@ -10,7 +10,6 @@ popup_scene = ExtResource("2_py21v")
 ui_layer = NodePath(".")
 
 [node name="Timer" type="Timer" parent="." unique_id=1743425802]
-wait_time = 0.9
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=714521827]
 stream = ExtResource("3_e86f0")
