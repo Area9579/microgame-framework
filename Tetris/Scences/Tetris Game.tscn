@@ -5,6 +5,8 @@
 [ext_resource type="Texture2D" uid="uid://klc76s7h0lg6" path="res://Tetris/Assets/Tetris Blocks Test/Sprite-0004.png" id="2_aubwc"]
 [ext_resource type="PackedScene" uid="uid://bdjgu1vihrou0" path="res://Tetris/Scences/Blocks.tscn" id="3_4p4p8"]
 [ext_resource type="PackedScene" uid="uid://bql81h0cdghwi" path="res://Tetris/Scences/WinBlocks.tscn" id="5_5cajt"]
+[ext_resource type="Script" uid="uid://cyfvu5wy0d5ph" path="res://Tetris/Scences/win_blocks.gd" id="6_mpnua"]
+[ext_resource type="AudioStream" uid="uid://b2qxgkk2fc3fc" path="res://Tetris/Assets/music/Tetris_main_theme.mp3" id="7_u28r0"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4p4p8"]
 texture = ExtResource("2_aubwc")
@@ -109,4 +111,10 @@ metadata/_edit_group_ = true
 position = Vector2(544, -60)
 
 [node name="Area2D3" parent="." unique_id=54487488 instance=ExtResource("5_5cajt")]
-position = Vector2(192, -60)
+position = Vector2(192, -62)
+script = ExtResource("6_mpnua")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1916532473]
+stream = ExtResource("7_u28r0")
+autoplay = true
+parameters/looping = false
