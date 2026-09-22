@@ -26,6 +26,7 @@
 [ext_resource type="Texture2D" uid="uid://1ouyrphirxwb" path="res://racecar/assets/pngs/explosion/funny_explosion-06.png" id="21_2uyx8"]
 [ext_resource type="Texture2D" uid="uid://btl14jog5t47l" path="res://racecar/assets/pngs/explosion/funny_explosion-07.png" id="22_peypn"]
 [ext_resource type="Texture2D" uid="uid://cvwomrra8c0ay" path="res://racecar/assets/pngs/explosion/funny_explosion-08.png" id="23_w14v4"]
+[ext_resource type="Texture2D" uid="uid://h8sv7afpf4op" path="res://racecar/assets/pngs/the_flag.png" id="26_f58m5"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_5i4ga"]
 atlas = ExtResource("8_afrpt")
@@ -293,6 +294,7 @@ position = Vector2(361, 317)
 rotation = -1.4758446
 
 [node name="Racecar" parent="TrackPath/CarFollow" unique_id=1221665385 instance=ExtResource("8_y2bvf")]
+y_sort_enabled = true
 position = Vector2(-40.530914, 6.873657)
 rotation = 1.4758446
 
@@ -301,6 +303,12 @@ unique_name_in_owner = true
 position = Vector2(-44.08622, -19.909916)
 rotation = -0.09495175
 sprite_frames = SubResource("SpriteFrames_myrju")
+
+[node name="flag" type="Sprite2D" parent="." unique_id=1086204719]
+y_sort_enabled = true
+position = Vector2(579.00006, 339)
+scale = Vector2(2.5, 2.5)
+texture = ExtResource("26_f58m5")
 
 [node name="FailPaths" type="Node2D" parent="." unique_id=1216193099]
 
