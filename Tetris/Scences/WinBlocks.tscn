@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://bql81h0cdghwi"]
 
-[ext_resource type="Script" uid="uid://02lbrcilaovs" path="res://Tetris/Scences/win_blocks.gd" id="1_ulvq6"]
+[ext_resource type="Script" uid="uid://02lbrcilaovs" path="res://Tetris/Scripts/win_blocks.gd" id="1_ulvq6"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pm0ju"]
 size = Vector2(26, 26)

@@ -53,59 +53,59 @@ layer_0/tile_data = PackedInt32Array(-65536, 131072, 6, -65534, 131072, 6, -6553
 layer_1/name = "Layer1"
 layer_1/z_index = 6
 
-[node name="Area2D" parent="." unique_id=983311959 instance=ExtResource("3_4p4p8")]
+[node name="Bad Blocks" type="Node" parent="." unique_id=1805869369]
+
+[node name="Area2D" parent="Bad Blocks" unique_id=983311959 instance=ExtResource("3_4p4p8")]
 position = Vector2(0, -60)
 
-[node name="Bad Blocks" type="Node" parent="Area2D" unique_id=1805869369]
-
-[node name="Area2D10" parent="Area2D/Bad Blocks" unique_id=641413614 instance=ExtResource("3_4p4p8")]
+[node name="Area2D10" parent="Bad Blocks" unique_id=641413614 instance=ExtResource("3_4p4p8")]
 position = Vector2(288, -60)
 metadata/_edit_group_ = true
 
-[node name="Area2D9" parent="Area2D/Bad Blocks" unique_id=1304562827 instance=ExtResource("3_4p4p8")]
+[node name="Area2D9" parent="Bad Blocks" unique_id=1304562827 instance=ExtResource("3_4p4p8")]
 position = Vector2(256, -60)
 
-[node name="Area2D7" parent="Area2D/Bad Blocks" unique_id=1744891634 instance=ExtResource("3_4p4p8")]
+[node name="Area2D7" parent="Bad Blocks" unique_id=1744891634 instance=ExtResource("3_4p4p8")]
 position = Vector2(224, -60)
 
-[node name="Area2D6" parent="Area2D/Bad Blocks" unique_id=1529247222 instance=ExtResource("3_4p4p8")]
+[node name="Area2D6" parent="Bad Blocks" unique_id=1529247222 instance=ExtResource("3_4p4p8")]
 position = Vector2(160, -60)
 
-[node name="Area2D5" parent="Area2D/Bad Blocks" unique_id=1285215175 instance=ExtResource("3_4p4p8")]
+[node name="Area2D5" parent="Bad Blocks" unique_id=1285215175 instance=ExtResource("3_4p4p8")]
 position = Vector2(128, -60)
 
-[node name="Area2D4" parent="Area2D/Bad Blocks" unique_id=389427618 instance=ExtResource("3_4p4p8")]
+[node name="Area2D4" parent="Bad Blocks" unique_id=389427618 instance=ExtResource("3_4p4p8")]
 position = Vector2(96, -60)
 
-[node name="Area2D3" parent="Area2D/Bad Blocks" unique_id=659655486 instance=ExtResource("3_4p4p8")]
+[node name="Area2D3" parent="Bad Blocks" unique_id=659655486 instance=ExtResource("3_4p4p8")]
 position = Vector2(64, -60)
 
-[node name="Area2D2" parent="Area2D/Bad Blocks" unique_id=2046646577 instance=ExtResource("3_4p4p8")]
+[node name="Area2D2" parent="Bad Blocks" unique_id=2046646577 instance=ExtResource("3_4p4p8")]
 position = Vector2(32, -60)
 
-[node name="Area2D11" parent="Area2D/Bad Blocks" unique_id=424086196 instance=ExtResource("3_4p4p8")]
+[node name="Area2D11" parent="Bad Blocks" unique_id=424086196 instance=ExtResource("3_4p4p8")]
 position = Vector2(320, -60)
 
-[node name="Area2D12" parent="Area2D/Bad Blocks" unique_id=98332090 instance=ExtResource("3_4p4p8")]
+[node name="Area2D12" parent="Bad Blocks" unique_id=98332090 instance=ExtResource("3_4p4p8")]
 position = Vector2(352, -60)
 
-[node name="Area2D13" parent="Area2D/Bad Blocks" unique_id=908395667 instance=ExtResource("3_4p4p8")]
+[node name="Area2D13" parent="Bad Blocks" unique_id=908395667 instance=ExtResource("3_4p4p8")]
 position = Vector2(384, -60)
 
-[node name="Area2D14" parent="Area2D/Bad Blocks" unique_id=2096560918 instance=ExtResource("3_4p4p8")]
+[node name="Area2D14" parent="Bad Blocks" unique_id=2096560918 instance=ExtResource("3_4p4p8")]
 position = Vector2(416, -60)
 
-[node name="Area2D15" parent="Area2D/Bad Blocks" unique_id=237778574 instance=ExtResource("3_4p4p8")]
+[node name="Area2D15" parent="Bad Blocks" unique_id=237778574 instance=ExtResource("3_4p4p8")]
 position = Vector2(448, -60)
 
-[node name="Area2D16" parent="Area2D/Bad Blocks" unique_id=568701559 instance=ExtResource("3_4p4p8")]
+[node name="Area2D16" parent="Bad Blocks" unique_id=568701559 instance=ExtResource("3_4p4p8")]
 position = Vector2(480, -60)
 
-[node name="Area2D17" parent="Area2D/Bad Blocks" unique_id=882514480 instance=ExtResource("3_4p4p8")]
+[node name="Area2D17" parent="Bad Blocks" unique_id=882514480 instance=ExtResource("3_4p4p8")]
 position = Vector2(512, -60)
 metadata/_edit_group_ = true
 
-[node name="Area2D8" parent="Area2D/Bad Blocks" unique_id=1745637183 instance=ExtResource("3_4p4p8")]
+[node name="Area2D8" parent="Bad Blocks" unique_id=1745637183 instance=ExtResource("3_4p4p8")]
 position = Vector2(544, -60)
 
 [node name="Area2D3" parent="." unique_id=54487488 instance=ExtResource("5_5cajt")]

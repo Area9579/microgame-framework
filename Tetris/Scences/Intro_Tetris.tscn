@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://tc87a4f6227j"]
+
+[ext_resource type="Script" uid="uid://bshylkv0i53av" path="res://Tetris/Scripts/intro_tetris.gd" id="1_52q67"]
+
+[node name="IntroTetris" type="Node2D" unique_id=1643071292]
+script = ExtResource("1_52q67")
+
+[node name="Timer" type="Timer" parent="." unique_id=52520607]
+wait_time = 2.5
+one_shot = true
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

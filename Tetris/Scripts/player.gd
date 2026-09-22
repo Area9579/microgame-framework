@@ -1,10 +1,14 @@
 extends CharacterBody2D
+@onready var gm: Tetris = $".."
 
 
 const SPEED = 300.0
 const JUMP_VELOCITY = -400.0
-var timing = 0
-const time_max = 30
+var timing : int = 0
+@onready var time_max : float = 30 - 20 * gm.difficulty
+var random_num = randi_range(0,4)
+func _ready() -> void:
+	position.x += random_num * 32
 func _physics_process(delta):
 	# Add the gravity.
 	if not is_on_floor():
