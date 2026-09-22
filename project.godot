@@ -11,7 +11,11 @@ config_version=5
 [application]
 
 config/name="Microgame Framework"
+<<<<<<< Updated upstream
 run/main_scene="uid://tc87a4f6227j"
+=======
+run/main_scene="uid://da4hhvghhnoi8"
+>>>>>>> Stashed changes
 config/features=PackedStringArray("4.7", "Forward Plus")
 config/icon="uid://dowbc4oitb623"
 
