@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ci2kkvigehftd"
-path="res://.godot/imported/talking-guy-11.png-dad3dffa418c5faa7ac242caf794e987.ctex"
+uid="uid://dhenqrhyfla85"
+path="res://.godot/imported/talking-guy-14.png-ce23224590a88d53d440ff7d85d48def.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Framework/Assets/talking_guy_pixely/talking-guy-11.png"
-dest_files=["res://.godot/imported/talking-guy-11.png-dad3dffa418c5faa7ac242caf794e987.ctex"]
+source_file="res://Framework/Assets/talking_guy_pixely/pixel_guy_head/talking-guy-14.png"
+dest_files=["res://.godot/imported/talking-guy-14.png-ce23224590a88d53d440ff7d85d48def.ctex"]
 
 [params]
 
