@@ -1,4 +1,4 @@
-class_name PauseMenu extends CanvasLayer
+class_name PauseMenu extends Node
 
 @onready var gradient: TextureRect = %Gradient
 @onready var resume: MainMenuButton = %Resume as MainMenuButton
