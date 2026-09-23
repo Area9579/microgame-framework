@@ -1,14 +1,22 @@
 [gd_scene format=3 uid="uid://b6fltbuf2l535"]
 
 [ext_resource type="Script" uid="uid://1xykq3ylekac" path="res://racecar/racecar_main.gd" id="1_g44wj"]
-[ext_resource type="Script" uid="uid://carddfynqxf1t" path="res://racecar/resources/checkpoint_data.gd" id="2_afrpt"]
-[ext_resource type="Resource" uid="uid://cggj16e2fa7wg" path="res://racecar/resources/levels/level_0/individual_checkpoints/0_checkpoint_0.tres" id="3_ikjkp"]
-[ext_resource type="Resource" uid="uid://daxe1jhlknpug" path="res://racecar/resources/levels/level_0/individual_checkpoints/0_checkpoint_1.tres" id="4_hr2yi"]
-[ext_resource type="Resource" uid="uid://cpkxk2so3lgq6" path="res://racecar/resources/levels/level_0/individual_checkpoints/0_checkpoint_2.tres" id="5_67rt8"]
-[ext_resource type="Resource" uid="uid://wiokim0rp600" path="res://racecar/resources/levels/level_0/individual_checkpoints/0_checkpoint_3.tres" id="6_pmjtb"]
+[ext_resource type="PackedScene" uid="uid://d2y2autg5m0hc" path="res://racecar/levels/RaceTrackLevel0.tscn" id="2_6641w"]
+[ext_resource type="PackedScene" uid="uid://cpv5mu1ce0uw5" path="res://racecar/levels/RaceTrackLevel1.tscn" id="3_x5q28"]
 
 [node name="Main" type="Node2D" unique_id=385830540]
 script = ExtResource("1_g44wj")
-checkpoints = Array[ExtResource("2_afrpt")]([ExtResource("3_ikjkp"), ExtResource("4_hr2yi"), ExtResource("5_67rt8"), ExtResource("6_pmjtb")])
+level_scenes = Array[PackedScene]([ExtResource("2_6641w"), ExtResource("3_x5q28")])
 
 [node name="CurrentLevel" type="Node" parent="." unique_id=903408773]
+
+[node name="FadeLayer" type="CanvasLayer" parent="." unique_id=1316040742]
+
+[node name="FadeRect" type="ColorRect" parent="FadeLayer" unique_id=56828130]
+visibility_layer = 16
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0)

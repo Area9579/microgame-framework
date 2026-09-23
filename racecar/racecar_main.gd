@@ -1,98 +1,57 @@
-class_name Racecar
+class_name RacecarMain
 extends MicroGame
+
+@export var level_scenes: Array[PackedScene] = []
+@export var fade_duration: float = 0.8
+
+@onready var current_level: Node = $CurrentLevel
+@onready var fade_rect: ColorRect = $FadeLayer/FadeRect
+
+var _level_index := -1
 
 
 func _ready() -> void:
+	fade_rect.color.a = 0.0
+	_advance_to_next_level()
 
 
-func _input(event: InputEvent) -> void:
+func _advance_to_next_level() -> void:
+	_level_index += 1
 
-func run_game() -> void:
-	await _run_countdown()
+	if _level_index >= level_scenes.size():
+		GameManager.win()
+		return
 
-	for i in checkpoints.size():
-		var success: bool = await _run_checkpoint(checkpoints[i])
-		if not success:
-			_handle_fail(i, _false_started)
-			return
-			
-	_handle_win()
+	_load_level(_level_index)
 
-func _run_countdown() -> void:
-	countdown_label.show()
-	for text in ["3", "2", "1", "Go!"]:
-		countdown_label.text = text
-		await get_tree().create_timer(0.7).timeout
-	countdown_label.hide()
 
-func _run_checkpoint(data: CheckpointData) -> bool:
-	# Randomized delay before the QTE triggers
-	_false_started = false
-	_waiting_for_qte = true
+func _load_level(index: int) -> void:
+	_clear_current_level()
 
-	qte_timer.wait_time = randf_range(data.min_delay, data.max_delay)
-	qte_timer.start()
-	await qte_timer.timeout
+	var level: Node2D = level_scenes[index].instantiate()
+	current_level.add_child(level)
+	level.level_completed.connect(_on_level_completed)
+	level.level_failed.connect(_on_level_failed)
 
-	_waiting_for_qte = false
-	if _false_started:
-		return false
+	await _fade_in()
 
-	qte.event_duration = data.qte_duration
-	qte.start()
-	var success: bool = await qte.finished
 
-	if success:
-		var tween := create_tween()
-		tween.tween_property(car_follow, "progress_ratio", data.success_ratio, 0.6)\
-			.set_trans(Tween.TRANS_SINE)\
-			.set_ease(Tween.EASE_IN_OUT)
-		await tween.finished
+func _on_level_completed() -> void:
+	_advance_to_next_level()
 
-	return success
 
-func _handle_fail(checkpoint_index: int, false_start := false) -> void:
-	var fail_path := fail_paths[checkpoint_index]
-	
-	# Reparent the follow node onto the fail curve
-	track_path.remove_child(car_follow)
-	fail_path.add_child(car_follow)
-	car_follow.progress_ratio = 0.0
-	
-	trees.get_child(checkpoint_index).play("death")
+func _on_level_failed() -> void:
+	GameManager.lose()
+	_load_level(_level_index)
+
+
+func _clear_current_level() -> void:
+	for child in current_level.get_children():
+		child.queue_free()
+
+
+func _fade_in() -> void:
+	fade_rect.color.a = 1.0
 	var tween := create_tween()
-	tween.tween_property(car_follow, "progress_ratio", 1.0, 0.6)
+	tween.tween_property(fade_rect, "color:a", 0.0, fade_duration)
 	await tween.finished
-	
-	explosion.play("explode")
-	racecar.queue_free()
-	trees.get_child(checkpoint_index).queue_free()
-	
-	
-	await get_tree().create_timer(0.7).timeout
-	game_over_panel.visible = true
-	game_over_title.text = "CRASHED!"
-	game_over_label.text = "TOO EARLY, BUCKO!" if false_start else "Bad news... You're DEAD!"
-
-
-func _handle_win() -> void:
-	await get_tree().create_timer(0.7).timeout
-	game_over_panel.visible = true
-	game_over_title.text = "SUCCESS!"
-	game_over_label.text = "You sure know how to drive!"
-
-
-func _handle_false_start() -> void:
-	qte.queue_free()
-	explosion.play("explode")
-	racecar.queue_free()
-	game_over_panel.visible = true
-	game_over_title.text = "FALSE START!"
-	game_over_label.text = "TOO EARLY, BUCKO!"
-
-func _on_menu_button_pressed():
-	pass
-
-
-func _on_again_button_pressed():
-	get_tree().reload_current_scene()

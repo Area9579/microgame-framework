@@ -1,7 +1,6 @@
 [gd_scene format=3 uid="uid://bmmsn6uhteowi"]
 
 [ext_resource type="Texture2D" uid="uid://cbi53h4r3b82m" path="res://racecar/assets/pngs/innocent_tree.png" id="1_0jncm"]
-[ext_resource type="Script" uid="uid://cmp8ni6bl0tkq" path="res://racecar/characters/race_track_character.gd" id="2_wkhtq"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_5i4ga"]
 atlas = ExtResource("1_0jncm")
@@ -45,6 +44,5 @@ animations = [{
 }]
 
 [node name="RaceTrackCharacter" type="AnimatedSprite2D" unique_id=964158213]
-scale = Vector2(2.5, 2.5)
+scale = Vector2(1.75, 1.75)
 sprite_frames = SubResource("SpriteFrames_a7qlb")
-script = ExtResource("2_wkhtq")
