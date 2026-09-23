@@ -1,17 +1,46 @@
-class_name Racecar
+class_name RacecarLevel0
 extends MicroGame
+
+@onready var character_handler = $CharacterHandler
+@onready var explosion = %Explosion
+@onready var track_path: Path2D = $TrackPath
+@onready var car_follow: PathFollow2D = $TrackPath/CarFollow
+@onready var fail_paths: Array[Path2D] = [
+	$FailPaths/FailPath0, $FailPaths/FailPath1,
+]
+@onready var qte = $GameUI/QTE
+@onready var qte_timer: Timer = $QteTimer
+@onready var countdown_label: Label = $GameUI/CountdownLabel
+@onready var game_over_panel = $GameUI/GameOverPanel
+@onready var game_over_title = $GameUI/GameOverPanel/VBoxContainer/GameOverTitle
+@onready var game_over_label = $GameUI/GameOverPanel/VBoxContainer/GameOverLabel
+@onready var racecar = $TrackPath/CarFollow/Racecar
+
+@export var racetrack_stats: RacetrackLevelStats
+
+var _waiting_for_qte := false
+var _false_started := false
 
 
 func _ready() -> void:
-
+	await character_handler.set_character_sprites()
+	qte_timer.one_shot = true
+	run_game()
 
 func _input(event: InputEvent) -> void:
+	if not _waiting_for_qte:
+		return
+	if event is InputEventKey and event.pressed and not event.is_echo() and event.keycode == KEY_SPACE:
+		_waiting_for_qte = false
+		_false_started = true
+		qte_timer.stop()
+		qte_timer.timeout.emit()
 
 func run_game() -> void:
 	await _run_countdown()
 
-	for i in checkpoints.size():
-		var success: bool = await _run_checkpoint(checkpoints[i])
+	for i in racetrack_stats.checkpoints.size():
+		var success: bool = await _run_checkpoint(racetrack_stats.checkpoints[i])
 		if not success:
 			_handle_fail(i, _false_started)
 			return
@@ -30,7 +59,7 @@ func _run_checkpoint(data: CheckpointData) -> bool:
 	_false_started = false
 	_waiting_for_qte = true
 
-	qte_timer.wait_time = randf_range(data.min_delay, data.max_delay)
+	qte_timer.wait_time = randf_range(racetrack_stats.min_delay, racetrack_stats.max_delay)
 	qte_timer.start()
 	await qte_timer.timeout
 
@@ -59,14 +88,14 @@ func _handle_fail(checkpoint_index: int, false_start := false) -> void:
 	fail_path.add_child(car_follow)
 	car_follow.progress_ratio = 0.0
 	
-	trees.get_child(checkpoint_index).play("death")
+	character_handler.get_child(checkpoint_index).play("death")
 	var tween := create_tween()
 	tween.tween_property(car_follow, "progress_ratio", 1.0, 0.6)
 	await tween.finished
 	
 	explosion.play("explode")
 	racecar.queue_free()
-	trees.get_child(checkpoint_index).queue_free()
+	character_handler.get_child(checkpoint_index).queue_free()
 	
 	
 	await get_tree().create_timer(0.7).timeout

@@ -1,0 +1,7 @@
+[gd_resource type="Resource" script_class="CheckpointData" format=3 uid="uid://yy07agc82r4o"]
+
+[ext_resource type="Script" uid="uid://carddfynqxf1t" path="res://racecar/resources/checkpoint_data.gd" id="1_nwalr"]
+
+[resource]
+script = ExtResource("1_nwalr")
+metadata/_custom_type_script = "uid://carddfynqxf1t"
