@@ -80,7 +80,7 @@ func shoot_gun():
 		get_tree().reload_current_scene()
 		
 
-func _input(event: InputEvent) -> void:
+func _input(_event: InputEvent) -> void:
 	if Input.is_action_pressed("left_click") and start == false and can_start:
 		start = true
 		start_game()
@@ -95,7 +95,7 @@ func start_game():
 	$Instructions2.visible = false
 	$Countdown.visible = true
 	var available_hints = hints.slice(0, 3)
-	var show_hint = 100
+	var _show_hint = 100
 	available_hints.shuffle()
 	
 	await get_tree().create_timer(0.05).timeout
