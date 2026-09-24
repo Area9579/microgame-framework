@@ -5,6 +5,8 @@
 [ext_resource type="Texture2D" uid="uid://dits0h1eltb4m" path="res://Framework/Assets/talking_guy_pixely/pixel_guy_head/talking-guy-4.png" id="2_freyk"]
 [ext_resource type="Texture2D" uid="uid://bqi773cor4n8a" path="res://Framework/Assets/talking_guy_pixely/pixel_guy_head/talking-guy-6.png" id="3_l8g2v"]
 [ext_resource type="Texture2D" uid="uid://di2ut2egkgmhg" path="res://Framework/Assets/talking_guy_pixely/pixel_guy_head/talking-guy-8.png" id="4_s7xev"]
+[ext_resource type="Script" uid="uid://c0eq70gyg7rhf" path="res://Framework/Addons/TweenTool/Scripts/Components/control_tween.gd" id="4_tp5iy"]
+[ext_resource type="Script" uid="uid://cdere083tmmuo" path="res://Framework/Addons/TweenTool/Scripts/TweenResources/offset_transform_tween.gd" id="5_0j46w"]
 [ext_resource type="Texture2D" uid="uid://bg8s3pir76joh" path="res://Framework/Assets/talking_guy_pixely/pixel_guy_head/talking-guy-10.png" id="5_0wjfl"]
 [ext_resource type="Texture2D" uid="uid://cylja1lfc2uyq" path="res://Framework/Assets/talking_guy_pixely/pixel_guy_head/talking-guy-12.png" id="6_tp5iy"]
 [ext_resource type="Texture2D" uid="uid://dhenqrhyfla85" path="res://Framework/Assets/talking_guy_pixely/pixel_guy_head/talking-guy-14.png" id="7_0j46w"]
@@ -82,14 +84,68 @@ animations = [{
 "speed": 8.0
 }]
 
+[sub_resource type="Resource" id="Resource_yf5fn"]
+script = ExtResource("5_0j46w")
+start_offset_scale = Vector2(1.6, 0.8)
+end_offset_scale = Vector2(1, 1)
+metadata/_custom_type_script = "uid://cdere083tmmuo"
+
+[sub_resource type="Curve" id="Curve_yf5fn"]
+_data = [Vector2(0, 0), 0.0, -3.0748649, 0, 0, Vector2(1, 1), -2.951872, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g4v7s"]
+size = Vector2(134.4, 198.4)
+
 [node name="TalkingPixelyGuy" type="Node2D" unique_id=1427312375]
 scale = Vector2(2.5, 2.5)
 script = ExtResource("1_freyk")
 
-[node name="PixelyGuyHead" type="AnimatedSprite2D" parent="." unique_id=1974612073]
+[node name="Control" type="Control" parent="." unique_id=2131250458]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -67.2
+offset_top = -99.2
+offset_right = 67.2
+offset_bottom = 99.2
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(0, 180.28)
+pivot_offset_ratio = Vector2(0.5, 0)
+offset_transform_enabled = true
+offset_transform_pivot = Vector2(0, 180.28)
+offset_transform_pivot_ratio = Vector2(0.5, 0)
+mouse_filter = 1
+
+[node name="PixelyGuyHead" type="AnimatedSprite2D" parent="Control" unique_id=1974612073]
+unique_name_in_owner = true
+position = Vector2(67.2, 99.2)
+scale = Vector2(0.99999976, 0.99999976)
 sprite_frames = SubResource("SpriteFrames_ekk2y")
 animation = &"talking-head"
 
-[node name="PixelyGuyBody" type="AnimatedSprite2D" parent="." unique_id=114286510]
+[node name="PixelyGuyBody" type="AnimatedSprite2D" parent="Control" unique_id=114286510]
+unique_name_in_owner = true
+position = Vector2(67.2, 99.2)
+scale = Vector2(0.99999976, 0.99999976)
 sprite_frames = SubResource("SpriteFrames_itup8")
 animation = &"talking-body"
+
+[node name="Squish" type="Node" parent="Control" unique_id=187843858 node_paths=PackedStringArray("affected_node")]
+script = ExtResource("4_tp5iy")
+affected_node = NodePath("..")
+offset_transform_tween = SubResource("Resource_yf5fn")
+use_custom_curve = true
+transition_curve = SubResource("Curve_yf5fn")
+tween_duration = 0.2
+metadata/_custom_type_script = "uid://c0eq70gyg7rhf"
+
+[node name="ClickableArea" type="Area2D" parent="." unique_id=1817162997]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ClickableArea" unique_id=221331649]
+scale = Vector2(0.99999994, 0.99999994)
+shape = SubResource("RectangleShape2D_g4v7s")
