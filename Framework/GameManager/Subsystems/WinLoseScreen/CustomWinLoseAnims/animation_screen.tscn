@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://btknun2im2vf8"]
+
+[ext_resource type="Script" uid="uid://r4j0x2h3ieib" path="res://Framework/GameManager/Subsystems/WinLoseScreen/CustomWinLoseAnims/animation_screen.gd" id="1_h4xo8"]
+
+[node name="AnimationScreen" type="Node2D" unique_id=1112917557]
+script = ExtResource("1_h4xo8")
