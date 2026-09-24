@@ -6,6 +6,7 @@
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_gh0et"]
 
 [node name="RoomManager" type="Node2D" unique_id=323792324]
+position = Vector2(576, 324)
 script = ExtResource("1_0oasm")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1934658899]

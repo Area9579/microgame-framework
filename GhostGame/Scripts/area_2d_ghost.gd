@@ -40,7 +40,7 @@ func _process(delta: float) -> void:
 	if winTime <= 0:
 		CountDownFinish()
 
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	var overlappingAreas = flashlightArea.get_overlapping_areas()
 	
 	if overlappingAreas.size() > 0:
