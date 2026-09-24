@@ -6,6 +6,9 @@
 [ext_resource type="Script" uid="uid://cdere083tmmuo" path="res://Framework/Addons/TweenTool/Scripts/TweenResources/offset_transform_tween.gd" id="3_hiv1w"]
 [ext_resource type="Texture2D" uid="uid://c04n3r6ravu8" path="res://Framework/Assets/main_menu_assets/yellow-button.png" id="3_svjsi"]
 [ext_resource type="Texture2D" uid="uid://clb0r5wq3jb" path="res://Framework/Assets/main_menu_assets/y-button-dots.png" id="4_ty2l7"]
+[ext_resource type="Texture2D" uid="uid://jvirutu5u3t8" path="res://Framework/Assets/the guy tamagotchi.png" id="7_bcowe"]
+[ext_resource type="Script" uid="uid://cv1tqomq6d35i" path="res://Framework/Addons/TweenTool/Scripts/Components/node2D_tween.gd" id="8_w0cir"]
+[ext_resource type="Script" uid="uid://cct0slx0ktj60" path="res://Framework/Addons/TweenTool/Scripts/TweenResources/transform_tween.gd" id="9_8ivf3"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vy41y"]
 bg_color = Color(0.68235296, 0.5019608, 0.8862745, 0)
@@ -18,6 +21,16 @@ bg_color = Color(0.5803922, 0.3647059, 0.8039216, 0)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hiv1w"]
 bg_color = Color(0.69803923, 0.25490198, 0.35686275, 0)
+
+[sub_resource type="Resource" id="Resource_57qmd"]
+script = ExtResource("9_8ivf3")
+start_position = Vector2(800, inf)
+end_position = Vector2(700, inf)
+start_rotation = 270.0
+end_rotation = 270.0
+start_scale = Vector2(2, 2)
+end_scale = Vector2(0.5, 0.5)
+metadata/_custom_type_script = "uid://cct0slx0ktj60"
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_svjsi"]
 blend_mode = 1
@@ -60,6 +73,42 @@ script = ExtResource("3_hiv1w")
 end_offset_scale = Vector2(1, 1)
 metadata/_custom_type_script = "uid://cdere083tmmuo"
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_cyff0"]
+atlas = ExtResource("7_bcowe")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7gh76"]
+atlas = ExtResource("7_bcowe")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_msmap"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cyff0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7gh76")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 3.0
+}]
+
+[sub_resource type="Resource" id="Resource_1gokp"]
+script = ExtResource("9_8ivf3")
+start_position = Vector2(700, inf)
+end_position = Vector2(800, inf)
+start_rotation = 270.0
+end_rotation = 270.0
+start_scale = Vector2(0.5, 0.5)
+end_scale = Vector2(2, 2)
+metadata/_custom_type_script = "uid://cct0slx0ktj60"
+
+[sub_resource type="Curve" id="Curve_2l6nx"]
+_data = [Vector2(0.009999998, 0.058823586), 0.0, 0.0, 0, 0, Vector2(0.28666666, 0.42245996), 3.5427804, 3.5427804, 0, 0, Vector2(1, 1), -1.9607842, 0.0, 0, 0]
+point_count = 3
+
 [node name="Button" type="Button" unique_id=1854378265 node_paths=PackedStringArray("intro", "outro", "start_hover_effect", "end_hover_effect", "press_effect", "release_effect")]
 texture_filter = 1
 anchors_preset = -1
@@ -101,6 +150,14 @@ end_hover_effect = NodePath("EndHoverEffect")
 press_effect = NodePath("PressEffect")
 release_effect = NodePath("ReleaseEffect")
 metadata/_edit_use_anchors_ = true
+
+[node name="Slide_in" type="Node" parent="." unique_id=2112081866 node_paths=PackedStringArray("affected_node")]
+script = ExtResource("8_w0cir")
+affected_node = NodePath("../tamagatchi")
+transform_tween = SubResource("Resource_57qmd")
+trans_type = 7
+tween_duration = 0.25
+metadata/_custom_type_script = "uid://cv1tqomq6d35i"
 
 [node name="ButtonArt" type="TextureRect" parent="." unique_id=1181708690]
 show_behind_parent = true
@@ -186,3 +243,20 @@ use_custom_curve = true
 transition_curve = SubResource("Curve_3gngh")
 tween_duration = 0.2
 metadata/_custom_type_script = "uid://c0eq70gyg7rhf"
+
+[node name="tamagatchi" type="AnimatedSprite2D" parent="." unique_id=861549083]
+z_index = -1
+position = Vector2(846, 63)
+scale = Vector2(1.565625, 1.4726563)
+sprite_frames = SubResource("SpriteFrames_msmap")
+autoplay = "default"
+
+[node name="Slide_out" type="Node" parent="tamagatchi" unique_id=557790724 node_paths=PackedStringArray("affected_node")]
+script = ExtResource("8_w0cir")
+affected_node = NodePath("..")
+transform_tween = SubResource("Resource_1gokp")
+autostart = true
+transition_curve = SubResource("Curve_2l6nx")
+trans_type = 5
+tween_duration = 0.25
+metadata/_custom_type_script = "uid://cv1tqomq6d35i"
