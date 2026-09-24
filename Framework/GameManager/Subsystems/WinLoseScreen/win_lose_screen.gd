@@ -32,13 +32,13 @@ func play_anim() -> void:
 	
 	# DO SILLY CUSTOM ART ANIMS:
 	# if player lost lives, they must've lost
-	#if new_save_data.lives < old_save_data.lives:
-		#lose_anims_pool.shuffle()
-		#await play_silly_anim(lose_anims_pool.get(0))
-	## if player didnt lose lives, they must've won!
-	#else:
-		#win_anims_pool.shuffle()
-		#await play_silly_anim(win_anims_pool.get(0))
+	if new_save_data.lives < old_save_data.lives:
+		lose_anims_pool.shuffle()
+		await play_silly_anim(lose_anims_pool.get(0))
+	# if player didnt lose lives, they must've won!
+	else:
+		win_anims_pool.shuffle()
+		await play_silly_anim(win_anims_pool.get(0))
 	
 	# do stat change anims
 	await lives_stat_display.do_anim(new_save_data.lives)
@@ -66,8 +66,15 @@ func play_silly_anim(packed_scene : PackedScene) -> void:
 	var instanced_scene = packed_scene.instantiate()
 	if instanced_scene is not WinLoseCustomAnimation:
 		return
+	
+	await fade_from_black.do_tween()
+	
 	self.add_child(instanced_scene)
 	await (instanced_scene as WinLoseCustomAnimation).anim_finished
+	
+	await fade_to_black.do_tween()
+	instanced_scene.queue_free()
+	await fade_from_black.do_tween()
 
 
 #region recording whether values have changed
