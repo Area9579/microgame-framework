@@ -100,8 +100,6 @@ sprite_frames = SubResource("SpriteFrames_g4v7s")
 autoplay = "default"
 frame_progress = 0.52147496
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1808304212]
-
 [node name="Fade" type="TextureRect" parent="." unique_id=341572088]
 z_index = -1
 layout_mode = 0
@@ -129,7 +127,7 @@ affected_node = NodePath("../Fade")
 offset_transform_tween = SubResource("Resource_p2dfn")
 use_custom_curve = true
 transition_curve = SubResource("Curve_jxrot")
-tween_duration = 2.0
+tween_duration = 0.9
 metadata/_custom_type_script = "uid://c0eq70gyg7rhf"
 
 [connection signal="pressed" from="VBoxContainer/Start" to="." method="_on_start_pressed"]
