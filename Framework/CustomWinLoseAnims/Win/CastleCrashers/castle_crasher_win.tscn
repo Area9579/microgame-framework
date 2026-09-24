@@ -80,7 +80,7 @@ _data = {
 &"default": SubResource("Animation_a0w54")
 }
 
-[node name="CustomAnimationScreen" type="Control" unique_id=22007565 node_paths=PackedStringArray("sprite_frame_animator")]
+[node name="CustomAnimationScreen" type="Control" unique_id=22007565 node_paths=PackedStringArray("sprite_frame_animator", "control_tween_sequencer")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -89,6 +89,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_x7gnv")
 sprite_frame_animator = NodePath("SpriteFrameAnimator")
+control_tween_sequencer = NodePath("MarginContainer/TextureRect/ControlTweenSequencer")
 metadata/_edit_use_anchors_ = true
 
 [node name="MarginContainer" type="MarginContainer" parent="." unique_id=1529723997]

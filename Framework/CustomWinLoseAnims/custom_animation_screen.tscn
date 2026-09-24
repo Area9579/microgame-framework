@@ -17,7 +17,7 @@ end_offset_rotation = -3.0
 end_offset_scale = Vector2(0.8, 0.8)
 metadata/_custom_type_script = "uid://cdere083tmmuo"
 
-[node name="CustomAnimationScreen" type="Control" unique_id=22007565]
+[node name="CustomAnimationScreen" type="Control" unique_id=22007565 node_paths=PackedStringArray("control_tween_sequencer")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -25,12 +25,13 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_x7gnv")
+control_tween_sequencer = NodePath("ControlTweenSequencer")
 metadata/_edit_use_anchors_ = true
 
 [node name="ControlTweenSequencer" type="Node" parent="." unique_id=103528410 node_paths=PackedStringArray("tween_array")]
+unique_name_in_owner = true
 script = ExtResource("2_djkbv")
 loop = true
-autostart = true
 tween_array = [NodePath("Expand"), NodePath("Shrink")]
 metadata/_custom_type_script = "uid://cbrntoax56ix8"
 
