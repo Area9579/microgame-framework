@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://c0j7rxry5fr2s"]
+[gd_scene format=3 uid="uid://d2qrnj35of28g"]
 
 [ext_resource type="Script" uid="uid://blam0tuw7p4n1" path="res://Framework/CustomWinLoseAnims/custom_animation_screen.gd" id="1_x7gnv"]
 [ext_resource type="Script" uid="uid://cbrntoax56ix8" path="res://Framework/Addons/TweenTool/Scripts/Effect Sequencers/control_tween_sequencer.gd" id="2_djkbv"]
