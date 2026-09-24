@@ -18,6 +18,7 @@ config/icon="uid://dowbc4oitb623"
 
 [autoload]
 
+Globals="*uid://by5cofprr0ipt"
 GameManager="*uid://caxigcjbd3chd"
 
 [display]
@@ -35,7 +36,10 @@ folder_colors={
 "res://Framework/GameManager/": "yellow",
 "res://Framework/MainMenu/": "green",
 "res://Framework/Microgame/": "blue",
-"res://SimpleExampleGame/": "orange"
+"res://SimpleExampleGame/": "orange",
+"res://SwordSticker/": "blue",
+"res://SwordSticker/SFX/": "purple",
+"res://SwordSticker/game-sprites/": "red"
 }
 
 [input]
