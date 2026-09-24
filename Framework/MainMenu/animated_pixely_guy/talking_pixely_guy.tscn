@@ -83,7 +83,7 @@ animations = [{
 }]
 
 [node name="TalkingPixelyGuy" type="Node2D" unique_id=1427312375]
-scale = Vector2(2.2, 2.2)
+scale = Vector2(2.5, 2.5)
 script = ExtResource("1_freyk")
 
 [node name="PixelyGuyHead" type="AnimatedSprite2D" parent="." unique_id=1974612073]

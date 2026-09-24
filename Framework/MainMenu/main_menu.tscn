@@ -51,7 +51,7 @@ layout_mode = 2
 text = "Exit  "
 
 [node name="TalkingPixelyGuy" parent="VBoxContainer" unique_id=1427312375 instance=ExtResource("4_o0nup")]
-position = Vector2(1061, 281.99997)
+position = Vector2(1124, 221)
 
 [connection signal="pressed" from="VBoxContainer/Start" to="." method="_on_start_pressed"]
 [connection signal="pressed" from="VBoxContainer/Settings" to="." method="_on_settings_pressed"]
