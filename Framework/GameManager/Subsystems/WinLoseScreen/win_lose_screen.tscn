@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://duwov4e18wdfj" path="res://Framework/GameManager/Subsystems/WinLoseScreen/win_lose_screen.gd" id="1_qhakw"]
 [ext_resource type="PackedScene" uid="uid://b8kmkoa0o6g25" path="res://Framework/CustomWinLoseAnims/Lose/CryinGuy/crying_guy.tscn" id="2_7cx1w"]
+[ext_resource type="PackedScene" uid="uid://bc2dbxkrktyo" path="res://Framework/CustomWinLoseAnims/Win/ComputerGuy/computer_guy.tscn" id="2_m50n3"]
 [ext_resource type="Script" uid="uid://c0eq70gyg7rhf" path="res://Framework/Addons/TweenTool/Scripts/Components/control_tween.gd" id="2_r143f"]
 [ext_resource type="Script" uid="uid://dby7depabb4fv" path="res://Framework/Addons/TweenTool/Scripts/TweenResources/canvas_item_tween.gd" id="3_6lfv7"]
 [ext_resource type="PackedScene" uid="uid://ch5hcarf4xd62" path="res://Framework/GameManager/Subsystems/WinLoseScreen/stat_display.tscn" id="4_r143f"]
@@ -27,6 +28,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_qhakw")
+win_anims_pool = Array[PackedScene]([ExtResource("2_m50n3")])
 lose_anims_pool = Array[PackedScene]([ExtResource("2_7cx1w")])
 metadata/_edit_use_anchors_ = true
 
