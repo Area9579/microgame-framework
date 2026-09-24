@@ -47,7 +47,7 @@ animations = [{
 }],
 "loop": 1,
 "name": &"talking-head",
-"speed": 5.0
+"speed": 8.0
 }]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_itup8"]
@@ -79,7 +79,7 @@ animations = [{
 }],
 "loop": 1,
 "name": &"talking-body",
-"speed": 5.0
+"speed": 8.0
 }]
 
 [node name="TalkingPixelyGuy" type="Node2D" unique_id=1427312375]
@@ -89,7 +89,6 @@ script = ExtResource("1_freyk")
 [node name="PixelyGuyHead" type="AnimatedSprite2D" parent="." unique_id=1974612073]
 sprite_frames = SubResource("SpriteFrames_ekk2y")
 animation = &"talking-head"
-frame_progress = 0.23620565
 
 [node name="PixelyGuyBody" type="AnimatedSprite2D" parent="." unique_id=114286510]
 sprite_frames = SubResource("SpriteFrames_itup8")
