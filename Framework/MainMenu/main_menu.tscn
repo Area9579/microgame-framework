@@ -3,6 +3,7 @@
 [ext_resource type="Theme" uid="uid://boxd477ugoae4" path="res://Framework/Assets/default_theme.tres" id="1_dek6e"]
 [ext_resource type="Script" uid="uid://cgq7cuv31fjkf" path="res://Framework/MainMenu/main_menu.gd" id="2_o0nup"]
 [ext_resource type="PackedScene" uid="uid://c57jn4q2xe3vy" path="res://Framework/MainMenu/main_menu_button.tscn" id="3_7gh76"]
+[ext_resource type="PackedScene" uid="uid://wlf60l2yos8f" path="res://Framework/MainMenu/animated_pixely_guy/talking_pixely_guy.tscn" id="4_o0nup"]
 
 [node name="MainMenu" type="Control" unique_id=1023252626]
 process_mode = 1
@@ -48,6 +49,9 @@ unique_name_in_owner = true
 process_mode = 1
 layout_mode = 2
 text = "Exit  "
+
+[node name="TalkingPixelyGuy" parent="VBoxContainer" unique_id=1427312375 instance=ExtResource("4_o0nup")]
+position = Vector2(1124, 221)
 
 [connection signal="pressed" from="VBoxContainer/Start" to="." method="_on_start_pressed"]
 [connection signal="pressed" from="VBoxContainer/Settings" to="." method="_on_settings_pressed"]
