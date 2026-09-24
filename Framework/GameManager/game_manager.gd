@@ -63,6 +63,7 @@ func start_microgame() -> void:
 
 func switch_scene_to_packed(scene : PackedScene) -> void:
 	microgame_queue.clear()
+	difficulty_manager.reset()
 	
 	if get_tree().paused == false:
 		pause_game()

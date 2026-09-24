@@ -15,6 +15,9 @@ var current_difficulty : float = 0:
 		current_difficulty = clampf(value, 0.0, 1.0)
 		difficulty_changed.emit(current_difficulty)
 
+func reset() -> void:
+	current_difficulty = 0.0
+
 
 func _on_microgame_stage_finished(num_completed : int) -> void:
 	# remaps number of stages completed to range of [0.0, 1.0] depending
