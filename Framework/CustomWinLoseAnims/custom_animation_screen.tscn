@@ -1,0 +1,96 @@
+[gd_scene format=3 uid="uid://d2qrnj35of28g"]
+
+[ext_resource type="Script" uid="uid://blam0tuw7p4n1" path="res://Framework/CustomWinLoseAnims/custom_animation_screen.gd" id="1_5tp5w"]
+[ext_resource type="Texture2D" uid="uid://xbigrfydrd02" path="res://Framework/Assets/CastleCrashers/Final_CCHB.png" id="2_8mv6e"]
+
+[sub_resource type="Animation" id="Animation_hmuj4"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MarginContainer/TextureRect:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [null]
+}
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g4v7s"]
+atlas = ExtResource("2_8mv6e")
+region = Rect2(8, -8, 2992, 3008)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7dio6"]
+atlas = ExtResource("2_8mv6e")
+region = Rect2(3000, -8, 3000, 3008)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w7cyk"]
+atlas = ExtResource("2_8mv6e")
+region = Rect2(6000, -8, 3000, 3008)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ky4nx"]
+atlas = ExtResource("2_8mv6e")
+region = Rect2(8, 3000, 2992, 3000)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iu4l4"]
+atlas = ExtResource("2_8mv6e")
+region = Rect2(3000, 3000, 3000, 3000)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p7gag"]
+atlas = ExtResource("2_8mv6e")
+region = Rect2(6000, 3000, 3000, 3000)
+
+[sub_resource type="Animation" id="Animation_a0w54"]
+resource_name = "animate"
+length = 0.56666666
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MarginContainer/TextureRect:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [SubResource("AtlasTexture_g4v7s"), SubResource("AtlasTexture_7dio6"), SubResource("AtlasTexture_w7cyk"), SubResource("AtlasTexture_ky4nx"), SubResource("AtlasTexture_iu4l4"), SubResource("AtlasTexture_p7gag")]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_tnj2f"]
+_data = {
+&"RESET": SubResource("Animation_hmuj4"),
+&"animate": SubResource("Animation_a0w54")
+}
+
+[node name="CustomAnimationScreen" type="Control" unique_id=22007565]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_5tp5w")
+metadata/_edit_use_anchors_ = true
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1529723997]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 100
+theme_override_constants/margin_top = 100
+theme_override_constants/margin_right = 100
+theme_override_constants/margin_bottom = 100
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer" unique_id=1534876068]
+layout_mode = 2
+expand_mode = 3
+stretch_mode = 5
+
+[node name="SpriteFrameAnimator" type="AnimationPlayer" parent="." unique_id=1363610188]
+libraries/ = SubResource("AnimationLibrary_tnj2f")
