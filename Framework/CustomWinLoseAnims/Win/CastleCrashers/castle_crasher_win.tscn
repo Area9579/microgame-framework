@@ -77,10 +77,10 @@ tracks/0/keys = {
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_tnj2f"]
 _data = {
 &"RESET": SubResource("Animation_hmuj4"),
-&"animate": SubResource("Animation_a0w54")
+&"default": SubResource("Animation_a0w54")
 }
 
-[node name="CustomAnimationScreen" type="Control" unique_id=22007565]
+[node name="CustomAnimationScreen" type="Control" unique_id=22007565 node_paths=PackedStringArray("sprite_frame_animator")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -88,6 +88,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_x7gnv")
+sprite_frame_animator = NodePath("SpriteFrameAnimator")
 metadata/_edit_use_anchors_ = true
 
 [node name="MarginContainer" type="MarginContainer" parent="." unique_id=1529723997]
