@@ -17,6 +17,7 @@ config/icon="uid://dowbc4oitb623"
 
 [autoload]
 
+Globals="*uid://by5cofprr0ipt"
 GameManager="*uid://caxigcjbd3chd"
 
 [display]
@@ -149,4 +150,5 @@ r={
 
 [rendering]
 
+textures/canvas_textures/default_texture_filter=0
 rendering_device/driver.windows="d3d12"
