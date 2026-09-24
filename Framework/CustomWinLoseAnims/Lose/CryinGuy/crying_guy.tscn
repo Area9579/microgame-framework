@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://4voabwrhw3jl" path="res://Framework/Assets/crying miku guy/Crying_Miku_GUY-1.png" id="1_ktrnt"]
 [ext_resource type="Script" uid="uid://r4j0x2h3ieib" path="res://Framework/CustomWinLoseAnims/animation_screen.gd" id="1_tuhae"]
 [ext_resource type="Texture2D" uid="uid://qxc4n8meis0n" path="res://Framework/Assets/crying miku guy/Crying_Miku_GUY-2.png" id="2_05qgv"]
-[ext_resource type="Script" uid="uid://cjqtc2uoqygno" path="res://Framework/CustomWinLoseAnims/Lose/crying_guy_orchestrator.gd" id="2_o10a5"]
+[ext_resource type="Script" uid="uid://cjqtc2uoqygno" path="res://Framework/CustomWinLoseAnims/Lose/CryinGuy/crying_guy_orchestrator.gd" id="2_o10a5"]
 [ext_resource type="Texture2D" uid="uid://bpcp2rqdxjj3d" path="res://Framework/Assets/crying miku guy/Crying_Miku_GUY-3.png" id="3_tuhae"]
 [ext_resource type="Texture2D" uid="uid://k0kupmw2ymg" path="res://Framework/Assets/crying miku guy/Crying_Miku_GUY-4.png" id="4_o10a5"]
 [ext_resource type="Script" uid="uid://cv1tqomq6d35i" path="res://Framework/Addons/TweenTool/Scripts/Components/node2D_tween.gd" id="7_gvvvj"]
@@ -54,7 +54,8 @@ script = ExtResource("2_o10a5")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CryingGuyOrchestrator" unique_id=201005776]
 position = Vector2(576, 312)
-scale = Vector2(0.3, 0.3)
+rotation = 0.033547584
+scale = Vector2(0.33203557, 0.33203557)
 sprite_frames = SubResource("SpriteFrames_g4v7s")
 
 [node name="Node2DTweenSequencer" type="Node" parent="CryingGuyOrchestrator/AnimatedSprite2D" unique_id=124265145 node_paths=PackedStringArray("affected_node", "tween_array")]
