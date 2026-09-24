@@ -82,6 +82,10 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_yrkv6"]
+radius = 37.999996
+height = 165.59999
+
 [node name="TalkingPixelyGuy" type="Node2D" unique_id=1427312375]
 scale = Vector2(2.5, 2.5)
 script = ExtResource("1_freyk")
@@ -94,3 +98,9 @@ frame_progress = 0.23620565
 [node name="PixelyGuyBody" type="AnimatedSprite2D" parent="." unique_id=114286510]
 sprite_frames = SubResource("SpriteFrames_itup8")
 animation = &"talking-body"
+
+[node name="GuyHoverArea" type="Area2D" parent="." unique_id=303071852]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GuyHoverArea" unique_id=1085094554]
+position = Vector2(4.7999997, 1.2)
+shape = SubResource("CapsuleShape2D_yrkv6")
