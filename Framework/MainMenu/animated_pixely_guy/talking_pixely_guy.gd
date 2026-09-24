@@ -2,11 +2,11 @@ extends Node2D
 @onready var _head = $PixelyGuyHead
 @onready var _body = $PixelyGuyBody
 
-@export var pulse_speed: float = .2
+@export var pulse_speed: float = .02
 var current_hue: float = 0.0
 func _process(delta: float) -> void:
 	current_hue = fmod(current_hue + delta * pulse_speed, 1.0)
-	var rainbow_color = Color.from_hsv(current_hue, 0.4, 0.8)
+	var rainbow_color = Color.from_hsv(current_hue, .3, .85) # adjust saturation/vividness and value/brightness
 	_head.self_modulate = rainbow_color
 	_body.self_modulate = rainbow_color
 
