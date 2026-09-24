@@ -4,7 +4,7 @@ class_name MainMenu extends Control
 @onready var settings: MainMenuButton = %Settings as MainMenuButton
 @onready var exit: MainMenuButton = %Exit as MainMenuButton
 @onready var control_tween: ControlTween = $ControlTween
-@onready var fade_tween: ControlTween = $ControlTween
+
 
 @onready var buttons : Array[MainMenuButton] = [
 	start,
@@ -15,7 +15,6 @@ class_name MainMenu extends Control
 
 func _ready() -> void:
 	# stagger buttons on begin
-	await  fade_tween.do_tween()
 	MainMenuButton.intro_all_buttons(buttons)
 	control_tween.do_tween()
 

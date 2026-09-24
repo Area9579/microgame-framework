@@ -31,8 +31,8 @@ animations = [{
 }]
 
 [sub_resource type="Gradient" id="Gradient_o0nup"]
-offsets = PackedFloat32Array(0.524, 0.8, 0.96)
-colors = PackedColorArray(1.0574789, 0.93038386, 0.32672173, 1, 0.42352942, 0.42352942, 0, 0, 1, 1, 0, 0)
+offsets = PackedFloat32Array(0.52, 0.856)
+colors = PackedColorArray(0.15377165, 0.15377165, 0.1494045, 1, 0.038745742, 0.038745742, 0, 0)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_yf5fn"]
 gradient = SubResource("Gradient_o0nup")
@@ -45,8 +45,8 @@ start_offset_position = Vector2(-1000, 0)
 metadata/_custom_type_script = "uid://cdere083tmmuo"
 
 [sub_resource type="Curve" id="Curve_jxrot"]
-_data = [Vector2(0, 0), 0.0, -0.85333896, 0, 0, Vector2(1, 1), -2.448639, 0.0, 0, 0]
-point_count = 2
+_data = [Vector2(0, 0), 0.0, -0.85333896, 0, 0, Vector2(0.9566667, 1), -2.092537, -2.092537, 0, 0, Vector2(1, 1), -2.448639, 0.0, 0, 0]
+point_count = 3
 
 [node name="MainMenu" type="Control" unique_id=1023252626]
 process_mode = 1
@@ -104,7 +104,7 @@ frame_progress = 0.52147496
 z_index = -1
 layout_mode = 0
 offset_left = -308.0
-offset_right = 1317.0
+offset_right = 1154.0
 offset_bottom = 650.0
 offset_transform_enabled = true
 mouse_filter = 2
@@ -127,7 +127,7 @@ affected_node = NodePath("../Fade")
 offset_transform_tween = SubResource("Resource_p2dfn")
 use_custom_curve = true
 transition_curve = SubResource("Curve_jxrot")
-tween_duration = 0.9
+tween_duration = 0.5
 metadata/_custom_type_script = "uid://c0eq70gyg7rhf"
 
 [connection signal="pressed" from="VBoxContainer/Start" to="." method="_on_start_pressed"]
