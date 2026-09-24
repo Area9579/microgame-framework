@@ -12,6 +12,7 @@ var outro_already_finished : bool = false ## flag set to true once outro has fin
 var hover_state : HoverState = HoverState.CANNOT_BE_HOVERED
 var glow_tween : Tween 
 
+
 @export var intro : ControlTween
 @export var outro : ControlTween
 @export var start_hover_effect : ControlTween
@@ -19,10 +20,17 @@ var glow_tween : Tween
 @export var press_effect : ControlTween
 @export var release_effect : ControlTween
 
+
+@onready var tamagatchi: AnimatedSprite2D = $tamagatchi 
+@onready var node_2d_tween: Node2DTween = $tamagatchi/Slide_out
+
 @onready var glow: TextureRect = get_node_or_null("ButtonGlow")
+@onready var slide_in: Node2DTween = $Slide_in
+
 
 
 func _ready() -> void:
+	tamagatchi.hide()
 	if !tweens_are_valid():
 		return
 	
@@ -118,6 +126,7 @@ func tweens_are_valid() -> bool:
 
 ## Cancels any hover effects playing currently
 func cancel_hover_tweens() -> void:
+	
 	if start_hover_effect.tween != null && start_hover_effect.tween.is_running():
 		start_hover_effect.tween.kill()
 	if end_hover_effect.tween != null && end_hover_effect.tween.is_running():
@@ -133,6 +142,8 @@ func play_hover_tween(tween : ControlTween) -> void:
 	cancel_hover_tweens()
 	hover_state = HoverState.CANNOT_BE_HOVERED
 	tween.do_tween()
+	tamagatchi.show()
+	node_2d_tween.do_tween()
 	# this looks fucked but it creates a small cooldown where the tweens cant 
 	# rapidly toggle hover on -> hover off -> hover on
 	await get_tree().create_timer(RAPID_TOGGLE_GATE_DURATION).timeout
@@ -170,6 +181,7 @@ func _on_hover_end() -> void:
 		
 	animate_glow(0.0, Vector2.ONE, .18) # return glow to invisible and normal size
 	play_hover_tween(end_hover_effect)
+	slide_in.do_tween()
 
 
 func _on_button_up() -> void:
