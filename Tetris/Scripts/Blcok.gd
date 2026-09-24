@@ -10,6 +10,6 @@ func _ready() -> void:
 
 
 
-func _on_body_entered(body):
+func _on_body_entered(_body):
 	GameManager.lose()
 	pass # Replace with function body.
