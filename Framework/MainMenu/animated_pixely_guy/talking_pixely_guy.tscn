@@ -1,0 +1,95 @@
+[gd_scene format=3 uid="uid://wlf60l2yos8f"]
+
+[ext_resource type="Script" uid="uid://c7hkmlvi6f51j" path="res://Framework/MainMenu/animated_pixely_guy/talking_pixely_guy.gd" id="1_freyk"]
+[ext_resource type="Texture2D" uid="uid://bku23tkully5o" path="res://Framework/Assets/talking_guy_pixely/pixel_guy_head/talking-guy-2.png" id="1_q3rhp"]
+[ext_resource type="Texture2D" uid="uid://dits0h1eltb4m" path="res://Framework/Assets/talking_guy_pixely/pixel_guy_head/talking-guy-4.png" id="2_freyk"]
+[ext_resource type="Texture2D" uid="uid://bqi773cor4n8a" path="res://Framework/Assets/talking_guy_pixely/pixel_guy_head/talking-guy-6.png" id="3_l8g2v"]
+[ext_resource type="Texture2D" uid="uid://di2ut2egkgmhg" path="res://Framework/Assets/talking_guy_pixely/pixel_guy_head/talking-guy-8.png" id="4_s7xev"]
+[ext_resource type="Texture2D" uid="uid://bg8s3pir76joh" path="res://Framework/Assets/talking_guy_pixely/pixel_guy_head/talking-guy-10.png" id="5_0wjfl"]
+[ext_resource type="Texture2D" uid="uid://cylja1lfc2uyq" path="res://Framework/Assets/talking_guy_pixely/pixel_guy_head/talking-guy-12.png" id="6_tp5iy"]
+[ext_resource type="Texture2D" uid="uid://dhenqrhyfla85" path="res://Framework/Assets/talking_guy_pixely/pixel_guy_head/talking-guy-14.png" id="7_0j46w"]
+[ext_resource type="Texture2D" uid="uid://2a0ereiyvy3r" path="res://Framework/Assets/talking_guy_pixely/pixel_guy_head/talking-guy-16.png" id="8_w6c1j"]
+[ext_resource type="Texture2D" uid="uid://ddqy8pb22fitv" path="res://Framework/Assets/talking_guy_pixely/pixel_guy_body/talking-guy-1.png" id="9_o8om5"]
+[ext_resource type="Texture2D" uid="uid://bu3a1ucvuh3ti" path="res://Framework/Assets/talking_guy_pixely/pixel_guy_body/talking-guy-3.png" id="10_iqdjp"]
+[ext_resource type="Texture2D" uid="uid://ou7yfju6gwny" path="res://Framework/Assets/talking_guy_pixely/pixel_guy_body/talking-guy-5.png" id="11_1o65o"]
+[ext_resource type="Texture2D" uid="uid://duo5aii13pc8y" path="res://Framework/Assets/talking_guy_pixely/pixel_guy_body/talking-guy-7.png" id="12_6blvc"]
+[ext_resource type="Texture2D" uid="uid://c4i4q8qfg3ti7" path="res://Framework/Assets/talking_guy_pixely/pixel_guy_body/talking-guy-9.png" id="13_jk5vs"]
+[ext_resource type="Texture2D" uid="uid://ci2kkvigehftd" path="res://Framework/Assets/talking_guy_pixely/pixel_guy_body/talking-guy-11.png" id="14_uf4w4"]
+[ext_resource type="Texture2D" uid="uid://dmgdfh8ux85h6" path="res://Framework/Assets/talking_guy_pixely/pixel_guy_body/talking-guy-13.png" id="15_lvp21"]
+[ext_resource type="Texture2D" uid="uid://bj65k6mti4qw0" path="res://Framework/Assets/talking_guy_pixely/pixel_guy_body/talking-guy-15.png" id="16_wxr70"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ekk2y"]
+animations = [{
+"frames": [{
+"duration": 1.8,
+"texture": ExtResource("1_q3rhp")
+}, {
+"duration": 0.7,
+"texture": ExtResource("2_freyk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_l8g2v")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_s7xev")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_0wjfl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_tp5iy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_0j46w")
+}, {
+"duration": 1.2,
+"texture": ExtResource("8_w6c1j")
+}],
+"loop": 1,
+"name": &"talking-head",
+"speed": 8.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_itup8"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("9_o8om5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_iqdjp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_1o65o")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_6blvc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_jk5vs")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_uf4w4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_lvp21")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_wxr70")
+}],
+"loop": 1,
+"name": &"talking-body",
+"speed": 8.0
+}]
+
+[node name="TalkingPixelyGuy" type="Node2D" unique_id=1427312375]
+scale = Vector2(2.5, 2.5)
+script = ExtResource("1_freyk")
+
+[node name="PixelyGuyHead" type="AnimatedSprite2D" parent="." unique_id=1974612073]
+sprite_frames = SubResource("SpriteFrames_ekk2y")
+animation = &"talking-head"
+
+[node name="PixelyGuyBody" type="AnimatedSprite2D" parent="." unique_id=114286510]
+sprite_frames = SubResource("SpriteFrames_itup8")
+animation = &"talking-body"
