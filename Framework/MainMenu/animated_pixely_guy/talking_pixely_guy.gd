@@ -4,6 +4,9 @@ extends Node2D
 @export var intro_delay: float = 0.6
 @export var intro_duration: float = 0.4
 @export var intro_distance: float = 600.0 #shift guy to off screen before sliding in
+@onready var clickable_area: Area2D = $ClickableArea as Area2D
+
+@onready var squish: ControlTween = $Control/Squish as ControlTween
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -23,3 +26,8 @@ func _ready() -> void:
 	
 	#activate tween
 	intro_tween.tween_property(self,"position",final_position,intro_duration)
+	clickable_area.input_event.connect(clicked)
+
+func clicked(_viewport : Node, event : InputEvent, _shape_inx : int) -> void:
+	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and not event.is_pressed():
+		squish.do_tween()
