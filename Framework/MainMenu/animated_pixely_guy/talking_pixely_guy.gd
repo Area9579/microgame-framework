@@ -1,6 +1,6 @@
 extends Node2D
-@onready var _head = $PixelyGuyHead
-@onready var _body = $PixelyGuyBody
+@onready var _head = %PixelyGuyHead
+@onready var _body = %PixelyGuyBody
 @export var intro_delay: float = 0.6
 @export var intro_duration: float = 0.4
 @export var intro_distance: float = 600.0 #shift guy to off screen before sliding in
