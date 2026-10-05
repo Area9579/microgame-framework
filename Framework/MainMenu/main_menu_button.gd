@@ -90,7 +90,7 @@ func animate_glow(alpha: float, scale_value: Vector2 = Vector2.ONE, duration: fl
 		return   #if button has no glow node do nothing
 	if glow_tween != null:
 		glow_tween.kill()  #if there is an old glow tween in system kill it
-		
+			
 	glow_tween = create_tween() #make new glow tween
 	glow_tween.set_parallel(true) # fade and scale happen in parallel / at same time
 	
@@ -182,7 +182,8 @@ func _on_hover_end() -> void:
 	animate_glow(0.0, Vector2.ONE, .18) # return glow to invisible and normal size
 	play_hover_tween(end_hover_effect)
 	slide_in.do_tween()
-
+	await get_tree().create_timer(1).timeout
+	tamagatchi.hide()
 
 func _on_button_up() -> void:
 	if outro_queued:

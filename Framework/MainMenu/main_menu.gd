@@ -5,6 +5,10 @@ class_name MainMenu extends Control
 @onready var exit: MainMenuButton = %Exit as MainMenuButton
 @onready var control_tween: ControlTween = $ControlTween
 
+@onready var Seal: seal = $RigidBody2D
+@onready var area_2d_5: StaticBody2D = $Area2D5
+
+
 
 @onready var buttons : Array[MainMenuButton] = [
 	start,
@@ -17,7 +21,7 @@ func _ready() -> void:
 	# stagger buttons on begin
 	MainMenuButton.intro_all_buttons(buttons)
 	control_tween.do_tween()
-
+	Seal.contact_monitor = true
 
 func _on_start_pressed() -> void:
 	await MainMenuButton.outro_all_buttons(start, buttons)

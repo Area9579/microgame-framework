@@ -3,8 +3,14 @@
 [ext_resource type="Theme" uid="uid://boxd477ugoae4" path="res://Framework/Assets/default_theme.tres" id="1_dek6e"]
 [ext_resource type="Script" uid="uid://cgq7cuv31fjkf" path="res://Framework/MainMenu/main_menu.gd" id="2_o0nup"]
 [ext_resource type="PackedScene" uid="uid://c57jn4q2xe3vy" path="res://Framework/MainMenu/main_menu_button.tscn" id="3_7gh76"]
+[ext_resource type="Script" uid="uid://o81qk58goni7" path="res://Framework/MainMenu/seal.gd" id="6_7gh76"]
+[ext_resource type="Shader" uid="uid://d1a7utst8xlyh" path="res://Framework/MainMenu/tsuki.gdshader" id="7_6a2kg"]
+[ext_resource type="Texture2D" uid="uid://drqatkpd4rorl" path="res://Framework/Assets/Seal/TSUKIIIIIIIIIIII.jpg" id="7_jxrot"]
 [ext_resource type="Script" uid="uid://c0eq70gyg7rhf" path="res://Framework/Addons/TweenTool/Scripts/Components/control_tween.gd" id="7_p2dfn"]
+[ext_resource type="AudioStream" uid="uid://c5xrfh3bkka4t" path="res://Framework/Assets/Seal/tsuki_short.mp3" id="8_6a2kg"]
 [ext_resource type="Script" uid="uid://cdere083tmmuo" path="res://Framework/Addons/TweenTool/Scripts/TweenResources/offset_transform_tween.gd" id="8_jxrot"]
+[ext_resource type="Script" uid="uid://cv1tqomq6d35i" path="res://Framework/Addons/TweenTool/Scripts/Components/node2D_tween.gd" id="9_cxbj4"]
+[ext_resource type="Script" uid="uid://cct0slx0ktj60" path="res://Framework/Addons/TweenTool/Scripts/TweenResources/transform_tween.gd" id="10_qcu78"]
 
 [sub_resource type="Gradient" id="Gradient_o0nup"]
 interpolation_mode = 2
@@ -26,6 +32,42 @@ metadata/_custom_type_script = "uid://cdere083tmmuo"
 [sub_resource type="Curve" id="Curve_jxrot"]
 _data = [Vector2(0, 0), 0.0, -0.85333896, 0, 0, Vector2(0.96333337, 0.98999995), -1.4571428, -1.4571428, 0, 0, Vector2(1, 1), -2.448639, 0.0, 0, 0]
 point_count = 3
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g4v7s"]
+size = Vector2(1156.5, 106)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yf5fn"]
+size = Vector2(69, 694)
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_cyff0"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_g4v7s"]
+radius = 44.04543
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_jxrot"]
+shader = ExtResource("7_6a2kg")
+
+[sub_resource type="Resource" id="Resource_g4v7s"]
+script = ExtResource("10_qcu78")
+end_scale = Vector2(0.1, 0.15)
+metadata/_custom_type_script = "uid://cct0slx0ktj60"
+
+[sub_resource type="Resource" id="Resource_yf5fn"]
+script = ExtResource("10_qcu78")
+start_scale = Vector2(0.1, 0.15)
+end_scale = Vector2(0.115, 0.1)
+metadata/_custom_type_script = "uid://cct0slx0ktj60"
+
+[sub_resource type="Resource" id="Resource_57qmd"]
+script = ExtResource("10_qcu78")
+end_scale = Vector2(0.2, 0.09)
+metadata/_custom_type_script = "uid://cct0slx0ktj60"
+
+[sub_resource type="Resource" id="Resource_qcu78"]
+script = ExtResource("10_qcu78")
+start_scale = Vector2(0.2, 0.09)
+end_scale = Vector2(0.115, 0.1)
+metadata/_custom_type_script = "uid://cct0slx0ktj60"
 
 [node name="MainMenu" type="Control" unique_id=1023252626]
 process_mode = 1
@@ -91,6 +133,85 @@ use_custom_curve = true
 transition_curve = SubResource("Curve_jxrot")
 tween_duration = 0.5
 metadata/_custom_type_script = "uid://c0eq70gyg7rhf"
+
+[node name="Area2D2" type="StaticBody2D" parent="." unique_id=1694907298]
+
+[node name="Roof" type="CollisionShape2D" parent="Area2D2" unique_id=27509023]
+position = Vector2(574, -62)
+shape = SubResource("RectangleShape2D_g4v7s")
+
+[node name="Area2D3" type="StaticBody2D" parent="." unique_id=1884611161]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D3" unique_id=1407862035]
+position = Vector2(-37, 336)
+shape = SubResource("RectangleShape2D_yf5fn")
+
+[node name="Area2D4" type="StaticBody2D" parent="." unique_id=1609148198]
+position = Vector2(1228, -18)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D4" unique_id=2120708641]
+position = Vector2(-44.5, 337)
+shape = SubResource("RectangleShape2D_yf5fn")
+
+[node name="RigidBody2D" type="RigidBody2D" parent="." unique_id=406023487]
+physics_material_override = SubResource("PhysicsMaterial_cyff0")
+script = ExtResource("6_7gh76")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D" unique_id=577647171]
+position = Vector2(618, 254)
+shape = SubResource("CircleShape2D_g4v7s")
+
+[node name="Sprite2D" type="Sprite2D" parent="RigidBody2D" unique_id=1213737314]
+material = SubResource("ShaderMaterial_jxrot")
+position = Vector2(618, 254)
+scale = Vector2(0.115, 0.1)
+texture = ExtResource("7_jxrot")
+
+[node name="squash" type="Node" parent="RigidBody2D" unique_id=1279475475 node_paths=PackedStringArray("affected_node")]
+script = ExtResource("9_cxbj4")
+affected_node = NodePath("../Sprite2D")
+transform_tween = SubResource("Resource_g4v7s")
+trans_type = 3
+ease_type = 1
+tween_duration = 0.5
+metadata/_custom_type_script = "uid://cv1tqomq6d35i"
+
+[node name="reshape" type="Node" parent="RigidBody2D" unique_id=188177280 node_paths=PackedStringArray("affected_node")]
+script = ExtResource("9_cxbj4")
+affected_node = NodePath("../Sprite2D")
+transform_tween = SubResource("Resource_yf5fn")
+trans_type = 3
+ease_type = 1
+tween_duration = 0.5
+metadata/_custom_type_script = "uid://cv1tqomq6d35i"
+
+[node name="squash_vert" type="Node" parent="RigidBody2D" unique_id=1440929786 node_paths=PackedStringArray("affected_node")]
+script = ExtResource("9_cxbj4")
+affected_node = NodePath("../Sprite2D")
+transform_tween = SubResource("Resource_57qmd")
+trans_type = 3
+ease_type = 1
+tween_duration = 0.5
+metadata/_custom_type_script = "uid://cv1tqomq6d35i"
+
+[node name="reshape_vert" type="Node" parent="RigidBody2D" unique_id=1765015948 node_paths=PackedStringArray("affected_node")]
+script = ExtResource("9_cxbj4")
+affected_node = NodePath("../Sprite2D")
+transform_tween = SubResource("Resource_qcu78")
+trans_type = 3
+ease_type = 1
+tween_duration = 0.3
+metadata/_custom_type_script = "uid://cv1tqomq6d35i"
+
+[node name="Area2D5" type="StaticBody2D" parent="." unique_id=825166138]
+position = Vector2(-8, 737)
+
+[node name="Floor" type="CollisionShape2D" parent="Area2D5" unique_id=969557127]
+position = Vector2(574, -36)
+shape = SubResource("RectangleShape2D_g4v7s")
+
+[node name="GUHHH" type="AudioStreamPlayer2D" parent="." unique_id=765435583]
+stream = ExtResource("8_6a2kg")
 
 [connection signal="pressed" from="VBoxContainer/Start" to="." method="_on_start_pressed"]
 [connection signal="pressed" from="VBoxContainer/Settings" to="." method="_on_settings_pressed"]
