@@ -63,14 +63,16 @@ func play_silly_anim(packed_scene : PackedScene) -> void:
 	if packed_scene == null:
 		push_warning("%s: Could not play silly anim for a null anim! Check the win/lose anim pool" % self)
 		return
+		
 	var instanced_scene = packed_scene.instantiate()
-	if instanced_scene is not WinLoseCustomAnimation:
+	
+	if instanced_scene is not CustomAnimationScreen:
 		return
 	
 	await fade_from_black.do_tween()
 	
 	self.add_child(instanced_scene)
-	await (instanced_scene as WinLoseCustomAnimation).anim_finished
+	await (instanced_scene as CustomAnimationScreen).anim_finished
 	
 	await fade_to_black.do_tween()
 	instanced_scene.queue_free()

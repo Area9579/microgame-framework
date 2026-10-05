@@ -3,6 +3,7 @@
 [ext_resource type="Theme" uid="uid://boxd477ugoae4" path="res://Framework/Assets/default_theme.tres" id="1_dek6e"]
 [ext_resource type="Script" uid="uid://cgq7cuv31fjkf" path="res://Framework/MainMenu/main_menu.gd" id="2_o0nup"]
 [ext_resource type="PackedScene" uid="uid://c57jn4q2xe3vy" path="res://Framework/MainMenu/main_menu_button.tscn" id="3_7gh76"]
+[ext_resource type="PackedScene" uid="uid://wlf60l2yos8f" path="res://Framework/MainMenu/animated_pixely_guy/talking_pixely_guy.tscn" id="4_o0nup"]
 [ext_resource type="Script" uid="uid://o81qk58goni7" path="res://Framework/MainMenu/seal.gd" id="6_7gh76"]
 [ext_resource type="Shader" uid="uid://d1a7utst8xlyh" path="res://Framework/MainMenu/tsuki.gdshader" id="7_6a2kg"]
 [ext_resource type="Texture2D" uid="uid://drqatkpd4rorl" path="res://Framework/Assets/Seal/TSUKIIIIIIIIIIII.jpg" id="7_jxrot"]
@@ -77,8 +78,13 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 1
 theme = ExtResource("1_dek6e")
 script = ExtResource("2_o0nup")
+
+[node name="TalkingPixelyGuy" parent="." unique_id=1427312375 instance=ExtResource("4_o0nup")]
+z_index = 5
+position = Vector2(940, 373)
 
 [node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=304299713]
 layout_mode = 1
@@ -154,6 +160,7 @@ position = Vector2(-44.5, 337)
 shape = SubResource("RectangleShape2D_yf5fn")
 
 [node name="RigidBody2D" type="RigidBody2D" parent="." unique_id=406023487]
+position = Vector2(298, 74)
 physics_material_override = SubResource("PhysicsMaterial_cyff0")
 script = ExtResource("6_7gh76")
 
@@ -163,7 +170,7 @@ shape = SubResource("CircleShape2D_g4v7s")
 
 [node name="Sprite2D" type="Sprite2D" parent="RigidBody2D" unique_id=1213737314]
 material = SubResource("ShaderMaterial_jxrot")
-position = Vector2(618, 254)
+position = Vector2(618, 253)
 scale = Vector2(0.115, 0.1)
 texture = ExtResource("7_jxrot")
 

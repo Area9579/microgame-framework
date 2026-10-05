@@ -13,7 +13,9 @@ var was_touching = false
 var speed = 300
 var speed_min = 200 
 var speed_max = 400
-
+var spawned := false
+var saved_layer: int
+var saved_mask: int
 
 
 
@@ -33,7 +35,24 @@ func _ready() -> void:
 	max_contacts_reported = 4
 	body_entered.connect(collide)
 	
+	saved_layer = collision_layer
+	saved_mask = collision_mask
+	collision_layer = 0
+	collision_mask = 0
+	hide()
+	freeze = true
+	
+	
+
+func spawn() -> void:
+	if spawned:
+		return
+	collision_layer = saved_layer
+	collision_mask = saved_mask
+	freeze = false
+	show()
 	linear_velocity = Vector2(1, 1).normalized() * speed
+	
 func _integrate_forces(state):
 	var touching = state.get_contact_count() > 0
 	if touching and not was_touching:
