@@ -74,7 +74,7 @@ func _integrate_forces(state):
 	
 	
 	if state.linear_velocity.length() > 0:
-		state.linear_velocity = state.linear_velocity.normalized() * speed
+		state.linear_velocity = state.linear_velocity.normalized() * 1000
 	
 	
 
